@@ -1144,6 +1144,7 @@ section.hero.on-navy .eyebrow { color: var(--steel-300); }
 }
 
 /* Pre-footer quote section — two-column layout (used on all sub-pages) -- */
+.quote-section { background: var(--paper-2); }
 .quote-section .container {
   display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px;
   align-items: start;
@@ -1185,6 +1186,11 @@ section.hero.on-navy .eyebrow { color: var(--steel-300); }
 .quote-section .quote-form {
   max-width: none;
   margin-left: 0;
+  background: #ffffff;
+  border-color: rgba(20, 37, 61, 0.10);
+  box-shadow:
+    0 24px 60px rgba(10, 25, 41, 0.08),
+    0 2px 6px rgba(10, 25, 41, 0.04);
 }
 @media (max-width: 920px) {
   .quote-section .container { grid-template-columns: 1fr; gap: 48px; }
