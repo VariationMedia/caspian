@@ -1152,6 +1152,32 @@ section.hero.on-navy .eyebrow { color: var(--steel-300); }
   pointer-events: none;
 }
 
+/* Service-area strip — small pill row that links service pages to area pages */
+.service-areas-strip { background: var(--paper-2); padding: 36px 0; border-top: 1px solid var(--line); }
+.service-areas-strip .container {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 16px 12px;
+}
+.service-areas-strip__label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--steel-500);
+  margin-right: 8px;
+}
+.service-areas-strip__link {
+  font-family: var(--font-display); font-weight: 600; font-size: 13px;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--navy-900);
+  padding: 8px 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.service-areas-strip__link:hover {
+  background: var(--navy-900); color: var(--paper); border-color: var(--navy-900);
+}
+@media (max-width: 720px) {
+  .service-areas-strip__label { width: 100%; margin-right: 0; margin-bottom: 4px; }
+}
+
 /* Pre-footer quote section — two-column layout (used on all sub-pages) -- */
 .quote-section { background: var(--paper-2); }
 .quote-section .container {

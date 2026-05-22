@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plumbing Services Toronto · Caspian</title>
-  <meta name="description" content="Caspian provides expert plumbing services across Toronto and the GTA — emergency plumbers available 24/7, no after-hours surcharge. Drain cleaning, water heaters, leak detection, sump pumps, and more. Licensed & insured in Ontario." />
-  <link rel="canonical" href="https://caspianmechanical.ca/plumbing.html" />
+  <title>Plumber &amp; Mechanical Contractor Oakville &amp; GTA West · Caspian</title>
+  <meta name="description" content="Caspian is an Oakville plumber and mechanical contractor serving Oakville, Burlington, and Milton — 24/7 emergency plumbing, HVAC, hydronics, and mechanical work for lakefront estates, custom homes, and light commercial across the GTA West." />
+  <link rel="canonical" href="https://caspianmechanical.ca/oakville.html" />
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Caspian Plumbing & Mechanical" />
-  <meta property="og:url" content="https://caspianmechanical.ca/plumbing.html" />
-  <meta property="og:title" content="Plumbing Services Toronto · Caspian" />
-  <meta property="og:description" content="Caspian provides expert plumbing services across Toronto and the GTA — emergency plumbers available 24/7, no after-hours surcharge. Drain cleaning, water heaters, leak detection, sump pumps, and more. Licensed & insured in Ontario." />
+  <meta property="og:url" content="https://caspianmechanical.ca/oakville.html" />
+  <meta property="og:title" content="Plumber &amp; Mechanical Contractor Oakville &amp; GTA West · Caspian" />
+  <meta property="og:description" content="Caspian is an Oakville plumber and mechanical contractor serving Oakville, Burlington, and Milton — 24/7 emergency plumbing, HVAC, hydronics, and mechanical work for lakefront estates, custom homes, and light commercial across the GTA West." />
   <meta property="og:image" content="https://caspianmechanical.ca/assets/og-default.jpg" />
   <meta property="og:locale" content="en_CA" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://caspianmechanical.ca/plumbing.html" />
-  <meta name="twitter:title" content="Plumbing Services Toronto · Caspian" />
-  <meta name="twitter:description" content="Caspian provides expert plumbing services across Toronto and the GTA — emergency plumbers available 24/7, no after-hours surcharge. Drain cleaning, water heaters, leak detection, sump pumps, and more. Licensed & insured in Ontario." />
+  <meta name="twitter:url" content="https://caspianmechanical.ca/oakville.html" />
+  <meta name="twitter:title" content="Plumber &amp; Mechanical Contractor Oakville &amp; GTA West · Caspian" />
+  <meta name="twitter:description" content="Caspian is an Oakville plumber and mechanical contractor serving Oakville, Burlington, and Milton — 24/7 emergency plumbing, HVAC, hydronics, and mechanical work for lakefront estates, custom homes, and light commercial across the GTA West." />
   <meta name="twitter:image" content="https://caspianmechanical.ca/assets/og-default.jpg" />
   <!-- Theme -->
   <meta name="theme-color" content="#0A1929" />
@@ -28,9 +28,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="website.css" />
 
-  <!-- Page-specific styles for sections not in website.css -->
+  <!-- Page-specific styles. Kept small — reuse shared tokens. -->
   <style>
-    /* ── Service cards grid ──────────────────────────────────────────── */
+    /* ── Services grid (reused pattern, same as plumbing page) ──────── */
     .plumbing-services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -71,7 +71,7 @@
       margin: 0;
     }
 
-    /* ── Trust / Why stats ───────────────────────────────────────────── */
+    /* ── Trust / stats grid on navy (matches plumbing page) ─────────── */
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -109,72 +109,141 @@
       line-height: 1.5;
     }
 
-    /* ── Process steps (horizontal, light bg) ────────────────────────── */
-    .process-steps {
+    /* ── Neighborhood tiles ─────────────────────────────────────────── */
+    .neighborhood-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
       border-top: 1px solid var(--line);
-      margin-top: 64px;
+      border-left: 1px solid var(--line);
     }
-    .process-step {
-      padding: 36px 28px 36px 0;
+    .neighborhood-tile {
+      padding: 28px 26px;
       border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: background 0.2s ease;
     }
-    .process-step:last-child { border-right: none; padding-right: 0; }
-    .process-step:not(:first-child) { padding-left: 28px; }
-    .process-step__num {
+    .neighborhood-tile:hover { background: var(--paper-2); }
+    .neighborhood-tile__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: -0.003em;
+      color: var(--navy-900);
+      margin: 0;
+    }
+    .neighborhood-tile__sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--steel-500);
+      margin: 0;
+    }
+
+    /* ── Local trust / 2-col text + creds ───────────────────────────── */
+    .local-trust-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .local-trust-grid p {
+      font-size: 16px;
+      color: var(--steel-700);
+      line-height: 1.65;
+      margin: 0 0 18px;
+    }
+    .local-trust-grid p:last-child { margin-bottom: 0; }
+    .local-creds {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .local-creds__label {
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.22em;
+      text-transform: uppercase;
       color: var(--steel-500);
-      margin-bottom: 22px;
-      display: block;
+      margin: 0 0 6px;
     }
-    .process-step h4 {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 22px;
-      letter-spacing: -0.002em;
-      margin: 0 0 10px;
+    .local-creds__item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
       color: var(--navy-900);
     }
-    .process-step p {
-      font-size: 14px;
-      color: var(--steel-700);
+    .local-creds__item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--navy-900);
+      flex-shrink: 0;
+    }
+
+    /* ── Other-areas pill strip ─────────────────────────────────────── */
+    .area-strip { padding: 56px 0; background: var(--paper-2); border-top: 1px solid var(--line); }
+    .area-strip__inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .area-strip__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--steel-500);
       margin: 0;
-      line-height: 1.5;
+    }
+    .area-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .area-pills a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy-900);
+      text-decoration: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .area-pills a:hover {
+      border-color: var(--navy-900);
+      background: var(--paper);
+    }
+    .area-pills a svg {
+      width: 12px;
+      height: 12px;
     }
 
-    /* ── Emergency CTA band ─────────────────────────────────────────── */
-    .emerg-band { text-align: center; }
-    .emerg-band h2 {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(36px, 5vw, 64px);
-      letter-spacing: -0.015em;
-      line-height: 1.02;
-      color: var(--paper);
-      margin: 0 0 18px;
-      text-wrap: balance;
-    }
-    .emerg-band p {
-      font-size: 17px;
-      color: var(--steel-300);
-      max-width: 560px;
-      margin: 0 auto 36px;
-      line-height: 1.55;
-    }
-    .emerg-band .hero-ctas { justify-content: center; }
-
-    /* ── Quote section ──────────────────────────────────────────────── */
+    /* ── Quote section (matches plumbing page) ──────────────────────── */
     .quote-section .container {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       gap: 80px;
       align-items: start;
     }
-    .quote-section__left {}
     .quote-section__left h2 {
       font-family: var(--font-display);
       font-weight: 700;
@@ -190,7 +259,7 @@
       color: var(--steel-700);
       line-height: 1.6;
       margin: 0 0 32px;
-      max-width: 420px;
+      max-width: 440px;
     }
     .quote-section__trust {
       display: flex;
@@ -218,53 +287,33 @@
       margin-left: 0;
     }
 
-    /* ── Hero dark override for plumbing page ───────────────────────── */
-    .hero--navy {
-      background: var(--navy-900);
-      color: var(--paper);
+    /* ── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .plumbing-services-grid { grid-template-columns: repeat(2, 1fr); }
+      .neighborhood-grid { grid-template-columns: repeat(3, 1fr); }
     }
-    .hero--navy::before,
-    .hero--navy::after { display: none; }
-    .hero--navy h1 { color: var(--paper); }
-    .hero--navy h1 em { color: var(--steel-300); }
-    .hero--navy p.lead { color: var(--steel-300); }
-    .hero--navy .hero-trust--full {
-      background: rgba(245, 244, 240, 0.05);
-      border-color: var(--line-rev);
-      backdrop-filter: none;
-    }
-    .hero--navy .hero-trust--full .num { color: var(--paper); }
-    .hero--navy .hero-trust--full .label { color: var(--steel-300); }
-    .hero--navy .hero-trust--full .item + .item { border-left-color: var(--line-rev); }
-
-    /* ── Why section heading on navy ────────────────────────────────── */
-    .why-section .section-head h2 { color: var(--paper); }
-
-    /* ── Responsive additions ───────────────────────────────────────── */
     @media (max-width: 920px) {
       .plumbing-services-grid { grid-template-columns: 1fr; }
+      .neighborhood-grid { grid-template-columns: repeat(2, 1fr); }
       .trust-grid { grid-template-columns: 1fr 1fr; gap: 0; }
       .trust-item { border-right: none; padding-right: 0; border-bottom: 1px solid var(--line-rev); }
       .trust-item:not(:first-child) { padding-left: 0; }
       .trust-item:nth-child(odd) { border-right: 1px solid var(--line-rev); padding-right: 24px; }
       .trust-item:nth-child(even) { padding-left: 24px; }
-      .process-steps { grid-template-columns: 1fr; }
-      .process-step { border-right: none; border-bottom: 1px solid var(--line); padding-right: 0; }
-      .process-step:not(:first-child) { padding-left: 0; }
+      .local-trust-grid { grid-template-columns: 1fr; gap: 40px; }
       .quote-section .container { grid-template-columns: 1fr; gap: 48px; }
       .quote-section__left p { max-width: none; }
     }
-    @media (max-width: 1100px) {
-      .plumbing-services-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 600px) {
+      .neighborhood-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── Reusable SVG: small hex with C inside, full hex badge, and icons ─── -->
+<!-- ─── Reusable SVG defs (copied verbatim from index/plumbing) ─── -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- Compact icon-only mark (kept for tiny placements) -->
     <symbol id="hex-c" viewBox="0 0 64 64">
       <path d="M 17.07 4 L 46.93 4 L 62 32 L 46.93 60 L 17.07 60 L 2 32 Z"
             fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="miter" />
@@ -272,32 +321,19 @@
             fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="butt" />
     </symbol>
 
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         PRIMARY LOGOMARK — LM·02 Hex Badge (horizontal)
-         Frame + inner hairline + C monogram + divider + CASPIAN +
-         justified PLUMBING & MECHANICAL descriptor. Color is driven by
-         the parent's `color` property via currentColor — same symbol
-         works on light or dark backgrounds.
-         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
     <symbol id="hex-badge" viewBox="0 0 640 220">
-      <!-- outer hex frame -->
       <path d="M 56 3 L 584 3 L 637 110 L 584 217 L 56 217 L 3 110 Z"
             fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" />
-      <!-- inner hairline -->
       <path d="M 64 13 L 576 13 L 627 110 L 576 207 L 64 207 L 13 110 Z"
             fill="none" stroke="currentColor" stroke-opacity="0.32" stroke-width="1" stroke-linejoin="miter" />
-      <!-- C monogram (240° arc opening right) -->
       <path d="M 180.5 62.4 A 55 55 0 1 0 180.5 157.6"
             fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="butt" />
-      <!-- vertical divider -->
       <line x1="234" y1="56" x2="234" y2="164"
             stroke="currentColor" stroke-opacity="0.32" stroke-width="1.5" />
-      <!-- CASPIAN wordmark -->
       <text x="261" y="124"
             font-family="Archivo, sans-serif" font-weight="700"
             font-size="58" letter-spacing="2.32"
             fill="currentColor">CASPIAN</text>
-      <!-- descriptor, justified to span the wordmark width -->
       <text x="261" y="158"
             font-family="Archivo, sans-serif" font-weight="500"
             font-size="11.5" fill="currentColor" opacity="0.7"
@@ -311,27 +347,19 @@
     <symbol id="ic-arrow" viewBox="0 0 16 16">
       <path d="M4 8 L12 8 M8 4 L12 8 L8 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
-
-    <!-- Shield with check — warranty trust mark. -->
     <symbol id="ic-shield" viewBox="0 0 24 24">
       <path d="M12 2 L4 5 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V5 Z"
             fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
       <path d="M8.5 12 L11 14.5 L15.5 9.5"
             fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
     </symbol>
-
-    <!-- Filled star — used for the Google rating row. -->
     <symbol id="ic-star" viewBox="0 0 24 24">
       <path d="M12 2 L14.85 8.4 L21.8 9.3 L16.65 14.05 L18.1 21 L12 17.45 L5.9 21 L7.35 14.05 L2.2 9.3 L9.15 8.4 Z" fill="currentColor" />
     </symbol>
-
-    <!-- Google "G" mark, simplified, single-color. -->
     <symbol id="ic-google" viewBox="0 0 24 24">
       <path d="M12 11v3.2h4.6c-.2 1.1-1.4 3.3-4.6 3.3-2.8 0-5-2.3-5-5.1s2.2-5.1 5-5.1c1.6 0 2.6.7 3.2 1.3l2.2-2.1C16 5.2 14.2 4.4 12 4.4 7.6 4.4 4 8 4 12.4s3.6 8 8 8c4.6 0 7.7-3.2 7.7-7.8 0-.5 0-.9-.1-1.3H12Z"
             fill="currentColor" />
     </symbol>
-
-    <!-- Social glyphs (single-color, currentColor) -->
     <symbol id="ic-instagram" viewBox="0 0 24 24">
       <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" />
       <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6" />
@@ -354,7 +382,6 @@
 <!-- ═════════════════════════════════════════════════════════════════ NAV -->
 <header class="site-header">
 
-  <!-- ── Utility bar ── -->
   <div class="topnav-util">
     <div class="topnav-util-inner">
       <a class="nav-emergency" href="tel:4168892629" aria-label="Call our 24/7 emergency line">
@@ -365,7 +392,6 @@
     </div>
   </div>
 
-  <!-- ── Main nav ── -->
   <nav class="topnav" aria-label="Main navigation">
     <div class="topnav-inner">
 
@@ -374,11 +400,8 @@
       </a>
 
       <ul class="nav-links" role="menubar">
-
-        <!-- Home -->
         <li role="none"><a href="index.html" role="menuitem">Home</a></li>
 
-        <!-- Plumbing -->
         <li class="has-dropdown" role="none">
           <a href="plumbing.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Plumbing
@@ -410,7 +433,6 @@
           </div>
         </li>
 
-        <!-- Mechanical & HVAC -->
         <li class="has-dropdown" role="none">
           <a href="mechanical-hvac.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Mechanical &amp; HVAC
@@ -441,7 +463,6 @@
           </div>
         </li>
 
-        <!-- Commercial -->
         <li class="has-dropdown" role="none">
           <a href="commercial.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Commercial
@@ -470,7 +491,6 @@
           </div>
         </li>
 
-        <!-- Builders -->
         <li class="has-dropdown" role="none">
           <a href="builders.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Builders
@@ -509,23 +529,25 @@
 </header>
 
 <!-- ═════════════════════════════════════════════════════════════════ HERO -->
-<section class="hero hero--navy on-navy" id="top">
+<section class="hero on-navy" id="top">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <p class="eyebrow" style="color: var(--steel-300);">
-          PLUMBING SERVICES · TORONTO &amp; GTA
+        <p class="eyebrow">
+          OAKVILLE &amp; GTA WEST · SERVICE AREA
         </p>
         <h1>
-          Expert plumbing for homes, businesses, <em>and emergencies.</em>
+          Oakville's mechanical contractor.
         </h1>
         <p class="lead">
-          Professional plumbers available 24/7 across the GTA. No
-          after-hours surcharge. Lifetime workmanship guarantee.
+          Caspian works across Oakville, Burlington, and Milton — from a failing boiler in a
+          Morrison lakefront estate to a full mechanical rough-in for a new custom build off
+          Lakeshore Road. Oakville emergencies answered in under 90 minutes. Project quotes
+          back within 24 hours.
         </p>
 
         <div class="hero-ctas">
-          <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Get a Free Quote</a>
+          <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Get an Oakville Quote</a>
           <a class="btn btn-ghost btn--lg" href="tel:4168892629">
             <svg width="16" height="16"><use href="#ic-phone" /></svg>
             24/7 Emergency · (416) 889-2629
@@ -536,58 +558,58 @@
       <div class="hero-visual">
         <form class="quote-form" onsubmit="event.preventDefault();">
           <div class="quote-form__head">
-            <h3>Tell us about your project.</h3>
+            <h3>Tell us about your Oakville project.</h3>
           </div>
 
           <div class="quote-form__group">
             <label class="quote-form__label">I need help with</label>
             <div class="quote-form__chips">
-              <input type="radio" id="t-service" name="type" value="service" checked />
-              <label for="t-service">Service call</label>
-              <input type="radio" id="t-reno" name="type" value="renovation" />
-              <label for="t-reno">Renovation</label>
-              <input type="radio" id="t-newbuild" name="type" value="newbuild" />
-              <label for="t-newbuild">New build</label>
-              <input type="radio" id="t-mech" name="type" value="mechanical" />
-              <label for="t-mech">Mechanical / boiler</label>
-              <input type="radio" id="t-builder" name="type" value="builder" />
-              <label for="t-builder">Builder enquiry</label>
+              <input type="radio" id="oak-service" name="oak-type" value="service" checked />
+              <label for="oak-service">Service call</label>
+              <input type="radio" id="oak-reno" name="oak-type" value="renovation" />
+              <label for="oak-reno">Renovation</label>
+              <input type="radio" id="oak-newbuild" name="oak-type" value="newbuild" />
+              <label for="oak-newbuild">New build</label>
+              <input type="radio" id="oak-mech" name="oak-type" value="mechanical" />
+              <label for="oak-mech">Mechanical / boiler</label>
+              <input type="radio" id="oak-builder" name="oak-type" value="builder" />
+              <label for="oak-builder">Builder enquiry</label>
             </div>
           </div>
 
           <div class="quote-form__group">
             <label class="quote-form__label">When do you need it?</label>
             <div class="quote-form__chips quote-form__chips--sm">
-              <input type="radio" id="w-emergency" name="when" value="emergency" />
-              <label for="w-emergency">Emergency</label>
-              <input type="radio" id="w-month" name="when" value="month" checked />
-              <label for="w-month">This month</label>
-              <input type="radio" id="w-quarter" name="when" value="quarter" />
-              <label for="w-quarter">1–3 months</label>
-              <input type="radio" id="w-planning" name="when" value="planning" />
-              <label for="w-planning">Planning</label>
+              <input type="radio" id="oak-emergency" name="oak-when" value="emergency" />
+              <label for="oak-emergency">Emergency</label>
+              <input type="radio" id="oak-month" name="oak-when" value="month" checked />
+              <label for="oak-month">This month</label>
+              <input type="radio" id="oak-quarter" name="oak-when" value="quarter" />
+              <label for="oak-quarter">1–3 months</label>
+              <input type="radio" id="oak-planning" name="oak-when" value="planning" />
+              <label for="oak-planning">Planning</label>
             </div>
           </div>
 
           <div class="quote-form__row quote-form__row--two">
             <div class="quote-form__field">
-              <label for="qf-name" class="quote-form__label">Name</label>
-              <input type="text" id="qf-name" placeholder="First &amp; last" autocomplete="name" />
+              <label for="oak-name" class="quote-form__label">Name</label>
+              <input type="text" id="oak-name" placeholder="First &amp; last" autocomplete="name" />
             </div>
             <div class="quote-form__field">
-              <label for="qf-phone" class="quote-form__label">Phone</label>
-              <input type="tel" id="qf-phone" placeholder="(416) 889-2629" autocomplete="tel" />
+              <label for="oak-phone" class="quote-form__label">Phone</label>
+              <input type="tel" id="oak-phone" placeholder="(416) 889-2629" autocomplete="tel" />
             </div>
           </div>
 
           <div class="quote-form__field">
-            <label for="qf-email" class="quote-form__label">Email</label>
-            <input type="email" id="qf-email" placeholder="you@domain.com" autocomplete="email" />
+            <label for="oak-email" class="quote-form__label">Email</label>
+            <input type="email" id="oak-email" placeholder="you@domain.com" autocomplete="email" />
           </div>
 
           <div class="quote-form__field">
-            <label for="qf-desc" class="quote-form__label">Project details</label>
-            <textarea id="qf-desc" rows="3" placeholder="Address, scope, timeline — anything you can share."></textarea>
+            <label for="oak-desc" class="quote-form__label">Project details</label>
+            <textarea id="oak-desc" rows="3" placeholder="Address, neighborhood, scope, timeline — anything you can share."></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary btn--lg btn--arrow quote-form__submit">Request a quote</button>
@@ -606,41 +628,92 @@
         </form>
       </div>
     </div>
-
-    <div class="hero-trust hero-trust--full">
-      <div class="item"><span class="num">24/7</span><span class="label">Emergency response</span></div>
-      <div class="item"><span class="num">Lifetime</span><span class="label">Workmanship guarantee</span></div>
-      <div class="item"><span class="num">Licensed</span><span class="label">Fully licensed &amp; insured · Ontario</span></div>
-      <div class="item"><span class="num">5.0 ★</span><span class="label">Google · 142 verified reviews</span></div>
-    </div>
   </div>
 </section>
 
-<!-- ═════════════════════════════════════════════════ WARRANTY BANNER -->
-<section class="warranty-strip on-navy">
-  <div class="container">
-    <svg class="warranty-strip__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-    <div class="warranty-strip__text">
-      <strong>1-year warranty on all workmanship.</strong>
-      <span>Included with every project · Provided in writing · No fine print</span>
-    </div>
-    <a class="warranty-strip__cta" href="#quote">
-      Learn more <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ SERVICES GRID -->
-<section class="on-paper-2" id="services">
+<!-- ════════════════════════════════════════════════════ NEIGHBORHOODS -->
+<section class="on-paper-2" id="neighborhoods">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="tag"><span class="dash"></span>WHAT WE DO</span>
-        <h2>Every plumbing service you need.</h2>
+        <span class="tag"><span class="dash"></span>WHERE WE WORK</span>
+        <h2>Across Oakville &amp; the GTA West.</h2>
       </div>
       <p>
-        From burst pipes at 2am to full rough-in for new builds — Caspian has
-        the crew and equipment to handle it.
+        From the lakefront estates of Old Oakville and Morrison up through Glen Abbey and
+        out to Burlington and Milton — Caspian crews know the GTA West's roads, lots, and
+        building stock.
+      </p>
+    </div>
+
+    <div class="neighborhood-grid">
+
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Heritage core &amp; lakefront</p>
+        <h3 class="neighborhood-tile__name">Old Oakville</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Boutique retail &amp; restaurants</p>
+        <h3 class="neighborhood-tile__name">Downtown Oakville</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Harbour, mid-century &amp; new builds</p>
+        <h3 class="neighborhood-tile__name">Bronte</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Lakefront estates &amp; custom homes</p>
+        <h3 class="neighborhood-tile__name">Eastlake &amp; Morrison</h3>
+      </div>
+
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Golf-course homes &amp; subdivisions</p>
+        <h3 class="neighborhood-tile__name">Glen Abbey</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Estate lots &amp; custom builds</p>
+        <h3 class="neighborhood-tile__name">Joshua Creek</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Executive detached homes</p>
+        <h3 class="neighborhood-tile__name">Iroquois Ridge North</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Family subdivisions, 80s–90s stock</p>
+        <h3 class="neighborhood-tile__name">River Oaks</h3>
+      </div>
+
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Mid-century &amp; ranch homes</p>
+        <h3 class="neighborhood-tile__name">College Park &amp; Falgarwood</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Newer family subdivisions</p>
+        <h3 class="neighborhood-tile__name">West Oak Trails &amp; Clearview</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Aldershot, Tyandaga, Roseland, Shoreacres</p>
+        <h3 class="neighborhood-tile__name">Burlington</h3>
+      </div>
+      <div class="neighborhood-tile">
+        <p class="neighborhood-tile__sub">Old Milton, Bronte Meadows, Coates</p>
+        <h3 class="neighborhood-tile__name">Milton</h3>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHAT WE DO IN OAKVILLE -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dash"></span>WHAT WE DO IN OAKVILLE</span>
+        <h2>Built for Oakville's building stock.</h2>
+      </div>
+      <p>
+        Oakville isn't a single building type — it's lakefront estates, mid-century ranches,
+        new-build subdivisions, and a heritage core. Caspian works across all of them.
       </p>
     </div>
 
@@ -648,256 +721,273 @@
 
       <div class="plumbing-service-card">
         <svg class="plumbing-service-card__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-        <h3>Emergency Plumber</h3>
-        <p>Burst pipe, no water, flooding — we're on-site within the hour, 24/7, no surcharge.</p>
+        <h3>Lakefront &amp; custom-home mechanical</h3>
+        <p>Multi-zone hydronics, dedicated boiler rooms, snowmelt driveways, pool and spa equipment for Old Oakville, Eastlake, Morrison, and Joshua Creek estates.</p>
       </div>
 
       <div class="plumbing-service-card">
         <svg class="plumbing-service-card__icon" viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
-        <h3>Drain Cleaning &amp; Hydro-Jetting</h3>
-        <p>Clear blockages fast with professional hydro-jet equipment. Roots, grease, scale — gone.</p>
+        <h3>Mid-century retrofits</h3>
+        <p>Galvanized to PEX or copper, boiler swaps, and basement waterproofing for 1950s–70s ranches and splits in Bronte, College Park, and Falgarwood.</p>
       </div>
 
       <div class="plumbing-service-card">
         <svg class="plumbing-service-card__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-        <h3>Sump Pump Installation</h3>
-        <p>Protect your basement from flooding with a properly sized, professionally installed sump pump.</p>
+        <h3>Subdivision plumbing &amp; HVAC</h3>
+        <p>Water heater and tankless conversions, AC replacements, and PEX repipes for 20–30 year old homes in Glen Abbey, Iroquois Ridge, River Oaks, and West Oak Trails.</p>
       </div>
 
       <div class="plumbing-service-card">
         <svg class="plumbing-service-card__icon" viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
-        <h3>Water Heaters</h3>
-        <p>Supply and install tank and tankless water heaters. Fast turnaround, manufacturer warranty.</p>
+        <h3>Heritage &amp; downtown core work</h3>
+        <p>Victorian and Edwardian retrofits in the Old Oakville core — cast-iron stack replacement, lead service swaps, and careful work around heritage finishes.</p>
       </div>
 
       <div class="plumbing-service-card">
         <svg class="plumbing-service-card__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-        <h3>Leak Detection &amp; Repair</h3>
-        <p>Advanced detection finds hidden leaks before they become disasters. Fixed right the first time.</p>
+        <h3>High-end fixture installation</h3>
+        <p>Kohler, TOTO, Hansgrohe, and custom European fixtures — proper rough-in for high-end primary baths, wet bars, and outdoor kitchens common in Eastlake and Joshua Creek builds.</p>
       </div>
 
       <div class="plumbing-service-card">
         <svg class="plumbing-service-card__icon" viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
-        <h3>Pipe Repair &amp; Replacement</h3>
-        <p>Copper, PEX, ABS — we repair and replace all pipe types with code-compliant workmanship.</p>
-      </div>
-
-      <div class="plumbing-service-card">
-        <svg class="plumbing-service-card__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-        <h3>Fixture Installation</h3>
-        <p>Faucets, sinks, toilets, showers — installed cleanly and correctly every time.</p>
-      </div>
-
-      <div class="plumbing-service-card">
-        <svg class="plumbing-service-card__icon" viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
-        <h3>Water Filtration Systems</h3>
-        <p>Whole-home filtration, reverse osmosis, UV purification. Clean water from every tap.</p>
-      </div>
-
-      <div class="plumbing-service-card">
-        <svg class="plumbing-service-card__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-        <h3>Backflow Prevention</h3>
-        <p>Certified backflow prevention installation and annual testing for residential and commercial properties.</p>
+        <h3>Light commercial along Lakeshore &amp; Trafalgar</h3>
+        <p>Grease traps, backflow, kitchen rough-in, and tenant fit-outs for retail, restaurants, and professional offices along Lakeshore Road, Trafalgar, and Dundas Street.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════ WHY CASPIAN -->
-<section class="on-navy why-section compact">
+<!-- ═══════════════════════════════════════════ RESPONSE TIMES IN OAKVILLE -->
+<section class="on-navy compact">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="tag" style="color: var(--steel-300)"><span class="dash"></span>WHY CHOOSE US</span>
-        <h2>Why homeowners choose Caspian.</h2>
+        <span class="tag" style="color: var(--steel-300)"><span class="dash"></span>RESPONSE TIMES</span>
+        <h2>When you need us — fast.</h2>
       </div>
-      <p>Licensed plumbers serving Toronto and the GTA with the reliability and workmanship you expect from a premium contractor.</p>
+      <p>Our crews are regularly working across Oakville, Burlington, and Milton — quick access via QEW, the 403, Trafalgar, and Dundas. Honest numbers, not marketing fluff.</p>
     </div>
 
     <div class="trust-grid">
 
       <div class="trust-item">
+        <div class="trust-item__num">&lt;90 min</div>
+        <span class="trust-item__label">Oakville Emergency</span>
+        <p class="trust-item__sub">On-site across Oakville and Burlington within 90 minutes for active leaks, no heat, no water. QEW / Trafalgar corridor response.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-item__num">Same day</div>
+        <span class="trust-item__label">GTA West Service</span>
+        <p class="trust-item__sub">Same-day service appointments across Oakville, Burlington, and Milton — weekdays and weekends.</p>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-item__num">24 hrs</div>
+        <span class="trust-item__label">Project Quotes</span>
+        <p class="trust-item__sub">Quotes for renovation, mechanical, and custom-home work returned within 24 hours of site visit.</p>
+      </div>
+
+      <div class="trust-item">
         <div class="trust-item__num">24/7</div>
-        <span class="trust-item__label">Emergency Response</span>
-        <p class="trust-item__sub">No after-hours surcharge — ever. Real plumbers on call, not an answering service.</p>
-      </div>
-
-      <div class="trust-item">
-        <div class="trust-item__num">Lifetime</div>
-        <span class="trust-item__label">Workmanship Guarantee</span>
-        <p class="trust-item__sub">Every plumbing job is backed by our lifetime workmanship guarantee, in writing.</p>
-      </div>
-
-      <div class="trust-item">
-        <div class="trust-item__num">Licensed</div>
-        <span class="trust-item__label">Fully Licensed &amp; Insured</span>
-        <p class="trust-item__sub">Fully licensed and insured in Ontario. Every plumber on our team is certified.</p>
-      </div>
-
-      <div class="trust-item">
-        <div class="trust-item__num">5.0 ★</div>
-        <span class="trust-item__label">Google Rating</span>
-        <p class="trust-item__sub">142 verified Google reviews. We treat every home as if it were our own.</p>
+        <span class="trust-item__label">Year-Round Availability</span>
+        <p class="trust-item__sub">On call every day of the year — including stat holidays, polar vortexes, and the August cottage rush.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════ PROCESS -->
-<section id="process">
+<!-- ════════════════════════════════════════════════ LOCAL TRUST SIGNALS -->
+<section class="on-paper-2">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="tag"><span class="dash"></span>OUR PROCESS</span>
-        <h2>Simple, fast, transparent.</h2>
+        <span class="tag"><span class="dash"></span>LOCAL EXPERTISE</span>
+        <h2>Built for Oakville buildings.</h2>
       </div>
-      <p>How a Caspian service call works — from the moment you call to the moment we leave.</p>
+      <p>
+        Oakville plumbing isn't generic plumbing. We know what to expect before we open the
+        wall — whether it's a lakefront custom or a 1960s split in Falgarwood.
+      </p>
     </div>
 
-    <div class="process-steps">
-
-      <div class="process-step">
-        <span class="process-step__num">01 / CALL OR QUOTE</span>
-        <h4>Call or quote</h4>
-        <p>Reach us 24/7 by phone or submit a quote online. We respond fast.</p>
+    <div class="local-trust-grid">
+      <div>
+        <p>
+          Oakville's lakefront estates are a different kind of project. Multi-zone hydronics,
+          snowmelt driveways, dedicated boiler rooms, pool and spa equipment, and high-end
+          European fixtures from Kohler, TOTO, and Hansgrohe — we're set up for the
+          tolerances and finish levels custom builders in Old Oakville, Eastlake, Morrison,
+          and Joshua Creek expect. Same goes for Burlington's Roseland and Shoreacres
+          lakefront stretches.
+        </p>
+        <p>
+          On the other end, the 1950s–70s ranch and split-level stock through Bronte,
+          College Park, and Falgarwood is full of original galvanized supply, aging boilers,
+          and basements that need waterproofing tied into the mechanical work. Glen Abbey,
+          Iroquois Ridge, River Oaks, and West Oak Trails are hitting the 20–30 year mark
+          where water heaters, tankless conversions, and AC replacements all come due at
+          once. We've done enough of them to know what's coming.
+        </p>
+        <p>
+          We're familiar with the Town of Oakville building department permit process and
+          how it differs from Halton Region inspections on water service work. We handle
+          Conservation Halton approvals for work near Bronte Creek, Sixteen Mile Creek, and
+          the lakeshore, and we know the Town's backwater valve rebate program — most older
+          basements in Bronte and Eastlake qualify.
+        </p>
+        <p>
+          For light commercial along Lakeshore Road, Trafalgar, and Dundas Street, we
+          handle grease traps, backflow testing, kitchen rough-ins, and tenant fit-outs.
+          Our crews are in Oakville, Burlington, and Milton every week — not occasionally —
+          so when you call, we're already nearby. It's why GTA West property owners and
+          custom builders keep us on speed dial.
+        </p>
       </div>
 
-      <div class="process-step">
-        <span class="process-step__num">02 / DIAGNOSIS</span>
-        <h4>Diagnosis</h4>
-        <p>Our plumber arrives on time, diagnoses the issue, and gives you a clear upfront price.</p>
-      </div>
-
-      <div class="process-step">
-        <span class="process-step__num">03 / WORK BEGINS</span>
-        <h4>Work begins</h4>
-        <p>We get to work immediately with the right tools and parts on the truck.</p>
-      </div>
-
-      <div class="process-step">
-        <span class="process-step__num">04 / GUARANTEED</span>
-        <h4>Guaranteed</h4>
-        <p>We clean up, walk you through the work, and back it with our lifetime workmanship guarantee.</p>
-      </div>
-
+      <aside class="local-creds">
+        <p class="local-creds__label">Credentials &amp; Compliance</p>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          TSSA Certified — gas &amp; pressure systems
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          ESA Licensed for related electrical
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          WSIB Compliant — clearance on file
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          Town of Oakville &amp; Halton Region permits
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          Conservation Halton experience
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          Custom-builder references available
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          Insured to $5M general liability
+        </div>
+        <div class="local-creds__item">
+          <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+          Lifetime workmanship guarantee
+        </div>
+      </aside>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════ EMERGENCY CTA BAND -->
-<section class="on-navy emerg-band compact">
+<!-- ═════════════════════════════════════════════════ OTHER GTA AREAS STRIP -->
+<section class="area-strip">
   <div class="container">
-    <h2>Plumbing emergency? We're on our way.</h2>
-    <p>Available 24 hours a day, 7 days a week. No after-hours charges. Real plumbers, not an answering service.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Get a Quote</a>
-      <a class="btn btn-ghost btn--lg" href="tel:4168892629">
-        <svg width="16" height="16"><use href="#ic-phone" /></svg>
-        Call (416) 889-2629
-      </a>
+    <div class="area-strip__inner">
+      <p class="area-strip__label">Also serving across the GTA</p>
+      <ul class="area-pills">
+        <li><a href="toronto.html">Toronto <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg></a></li>
+        <li><a href="north-york.html">North York <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg></a></li>
+        <li><a href="etobicoke.html">Etobicoke <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg></a></li>
+        <li><a href="mississauga.html">Mississauga <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg></a></li>
+      </ul>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════ QUOTE FORM -->
-<!-- ═══════════════════════════════════════════════════ SERVICE AREAS -->
-<section class="service-areas-strip">
-  <div class="container">
-    <span class="service-areas-strip__label">Where we work</span>
-    <a class="service-areas-strip__link" href="toronto.html">Toronto</a>
-    <a class="service-areas-strip__link" href="north-york.html">North York</a>
-    <a class="service-areas-strip__link" href="etobicoke.html">Etobicoke</a>
-    <a class="service-areas-strip__link" href="mississauga.html">Mississauga</a>
-    <a class="service-areas-strip__link" href="oakville.html">Oakville &amp; GTA West</a>
-  </div>
-</section>
-
 <section class="quote-section" id="quote">
   <div class="container">
     <div class="quote-section__left">
       <p class="eyebrow">GET A QUOTE</p>
-      <h2>Tell us about your plumbing project.</h2>
+      <h2>Working on an Oakville or GTA West property?</h2>
       <p>
-        Fill out the form and we'll respond within the hour during business hours —
-        or call us directly for a same-day appointment. No obligation, no pressure.
+        Tell us the address and what's going on — we'll get an Oakville plumber or mechanical
+        tech back to you the same business day. For emergencies, call the 24/7 line and we'll
+        be on the way before you hang up.
       </p>
 
       <div class="quote-section__trust">
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          Lifetime workmanship guarantee on all plumbing
+          Same-day response across Oakville &amp; Burlington
         </div>
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          24/7 availability — no after-hours surcharge
+          Town of Oakville &amp; Halton Region permit experience
         </div>
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          Fully licensed &amp; insured in Ontario
+          Custom-builder &amp; lakefront-estate references
         </div>
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          Upfront pricing — no surprises on the invoice
+          Lifetime workmanship guarantee, in writing
         </div>
       </div>
     </div>
 
     <form class="quote-form" onsubmit="event.preventDefault();">
       <div class="quote-form__head">
-        <h3>Tell us about your project.</h3>
+        <h3>Tell us about your Oakville project.</h3>
       </div>
 
       <div class="quote-form__group">
         <label class="quote-form__label">I need help with</label>
         <div class="quote-form__chips">
-          <input type="radio" id="q2-service" name="type2" value="service" checked />
-          <label for="q2-service">Service call</label>
-          <input type="radio" id="q2-reno" name="type2" value="renovation" />
-          <label for="q2-reno">Renovation</label>
-          <input type="radio" id="q2-newbuild" name="type2" value="newbuild" />
-          <label for="q2-newbuild">New build</label>
-          <input type="radio" id="q2-mech" name="type2" value="mechanical" />
-          <label for="q2-mech">Mechanical / boiler</label>
-          <input type="radio" id="q2-builder" name="type2" value="builder" />
-          <label for="q2-builder">Builder enquiry</label>
+          <input type="radio" id="oak2-service" name="oak2-type" value="service" checked />
+          <label for="oak2-service">Service call</label>
+          <input type="radio" id="oak2-reno" name="oak2-type" value="renovation" />
+          <label for="oak2-reno">Renovation</label>
+          <input type="radio" id="oak2-newbuild" name="oak2-type" value="newbuild" />
+          <label for="oak2-newbuild">New build</label>
+          <input type="radio" id="oak2-mech" name="oak2-type" value="mechanical" />
+          <label for="oak2-mech">Mechanical / boiler</label>
+          <input type="radio" id="oak2-builder" name="oak2-type" value="builder" />
+          <label for="oak2-builder">Builder enquiry</label>
         </div>
       </div>
 
       <div class="quote-form__group">
         <label class="quote-form__label">When do you need it?</label>
         <div class="quote-form__chips quote-form__chips--sm">
-          <input type="radio" id="q2-emergency" name="when2" value="emergency" />
-          <label for="q2-emergency">Emergency</label>
-          <input type="radio" id="q2-month" name="when2" value="month" checked />
-          <label for="q2-month">This month</label>
-          <input type="radio" id="q2-quarter" name="when2" value="quarter" />
-          <label for="q2-quarter">1–3 months</label>
-          <input type="radio" id="q2-planning" name="when2" value="planning" />
-          <label for="q2-planning">Planning</label>
+          <input type="radio" id="oak2-emergency" name="oak2-when" value="emergency" />
+          <label for="oak2-emergency">Emergency</label>
+          <input type="radio" id="oak2-month" name="oak2-when" value="month" checked />
+          <label for="oak2-month">This month</label>
+          <input type="radio" id="oak2-quarter" name="oak2-when" value="quarter" />
+          <label for="oak2-quarter">1–3 months</label>
+          <input type="radio" id="oak2-planning" name="oak2-when" value="planning" />
+          <label for="oak2-planning">Planning</label>
         </div>
       </div>
 
       <div class="quote-form__row quote-form__row--two">
         <div class="quote-form__field">
-          <label for="q2-name" class="quote-form__label">Name</label>
-          <input type="text" id="q2-name" placeholder="First &amp; last" autocomplete="name" />
+          <label for="oak2-name" class="quote-form__label">Name</label>
+          <input type="text" id="oak2-name" placeholder="First &amp; last" autocomplete="name" />
         </div>
         <div class="quote-form__field">
-          <label for="q2-phone" class="quote-form__label">Phone</label>
-          <input type="tel" id="q2-phone" placeholder="(416) 889-2629" autocomplete="tel" />
+          <label for="oak2-phone" class="quote-form__label">Phone</label>
+          <input type="tel" id="oak2-phone" placeholder="(416) 889-2629" autocomplete="tel" />
         </div>
       </div>
 
       <div class="quote-form__field">
-        <label for="q2-email" class="quote-form__label">Email</label>
-        <input type="email" id="q2-email" placeholder="you@domain.com" autocomplete="email" />
+        <label for="oak2-email" class="quote-form__label">Email</label>
+        <input type="email" id="oak2-email" placeholder="you@domain.com" autocomplete="email" />
       </div>
 
       <div class="quote-form__field">
-        <label for="q2-desc" class="quote-form__label">Project details</label>
-        <textarea id="q2-desc" rows="3" placeholder="Address, scope, timeline — anything you can share."></textarea>
+        <label for="oak2-desc" class="quote-form__label">Project details</label>
+        <textarea id="oak2-desc" rows="3" placeholder="Address, neighborhood, scope, timeline — anything you can share."></textarea>
       </div>
 
       <button type="submit" class="btn btn-primary btn--lg btn--arrow quote-form__submit">Request a quote</button>
@@ -967,7 +1057,7 @@
           <li><a href="index.html#projects">Projects</a></li>
           <li><a href="builders.html">For builders</a></li>
           <li><a href="#quote">Contact</a></li>
-          <li><a href="careers.html">Careers</a></li>
+          <li><a href="#">Careers</a></li>
         </ul>
       </div>
 
@@ -978,7 +1068,7 @@
           <li><a href="north-york.html">North York</a></li>
           <li><a href="etobicoke.html">Etobicoke</a></li>
           <li><a href="mississauga.html">Mississauga</a></li>
-          <li><a href="oakville.html">Oakville <li><a href="#">Oakville &amp; GTA West</a></li>amp; GTA West</a></li>
+          <li><a href="oakville.html">Oakville &amp; GTA West</a></li>
         </ul>
       </div>
     </div>
@@ -1009,7 +1099,7 @@
   </div>
 </footer>
 
-<!-- Sticky mobile call button: split between office and emergency -->
+<!-- Sticky mobile call button -->
 <div class="mobile-call">
   <a class="mobile-call__half" href="tel:4168892629">
     <svg><use href="#ic-phone" /></svg>
