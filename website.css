@@ -183,7 +183,7 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
   color: var(--paper);
 }
 .topnav-util-inner {
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex; align-items: center; justify-content: flex-end;
   gap: 24px; padding: 9px var(--gutter);
   max-width: var(--container); margin: 0 auto;
 }
