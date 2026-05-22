@@ -1007,6 +1007,54 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
   margin-top: 12px; display: block;
 }
 
+/* Trust/why grid — used on sub-pages (alias of stats pattern) --------- */
+.trust-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  text-align: center;
+}
+.trust-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.trust-item__num {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(40px, 4vw, 60px); line-height: 1; letter-spacing: -0.02em;
+  color: var(--paper);
+}
+.trust-item__label {
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  color: var(--paper);
+}
+.trust-item__sub {
+  font-size: 13px; color: var(--steel-300); max-width: 200px; line-height: 1.4;
+}
+
+/* 3-col service card grid — used on plumbing sub-page ----------------- */
+.plumbing-services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 8px;
+}
+.plumbing-service-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--rad-md);
+  padding: 28px 24px 24px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.plumbing-service-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--line-2);
+}
+.plumbing-service-card__icon {
+  width: 28px; height: 28px; color: var(--steel-500); flex-shrink: 0;
+}
+.plumbing-service-card h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 17px;
+  letter-spacing: -0.005em; line-height: 1.2; margin: 0;
+  color: var(--navy-900);
+}
+.plumbing-service-card p {
+  font-size: 14px; color: var(--steel-700); margin: 0; line-height: 1.55;
+}
+
 /* Process ------------------------------------------------------------- */
 .process { background: var(--navy-900); color: var(--paper); }
 .process-grid {
