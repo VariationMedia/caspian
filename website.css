@@ -316,9 +316,18 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
 
 .has-dropdown { position: relative; }
 
+/* Invisible bridge below the trigger — keeps :hover alive while
+   the mouse travels the gap between the trigger and the menu. */
+.has-dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%; left: -20px; right: -20px;
+  height: 14px;
+}
+
 .mega-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 14px);
   left: 50%; transform: translateX(-50%) translateY(-6px);
   width: 580px;
   background: var(--navy-800);
@@ -331,13 +340,6 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.18s ease, transform 0.18s ease;
-  margin-top: 12px;
-}
-/* invisible bridge: fills the 12px gap above the menu so hover is preserved */
-.mega-menu::before {
-  content: '';
-  position: absolute;
-  top: -12px; left: 0; right: 0; height: 12px;
 }
 .has-dropdown:hover .mega-menu {
   opacity: 1;
@@ -416,19 +418,19 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
 }
 .mega-menu a.mega-menu__panel-btn:hover { background: #fff; }
 
-/* First item: left-align the menu so it doesn't clip the viewport */
-.nav-links > li:first-child .mega-menu {
+/* First item: left-align so it doesn't clip the viewport */
+.nav-links > li.has-dropdown:first-of-type .mega-menu {
   left: 0; transform: translateX(0) translateY(-6px);
 }
-.nav-links > li:first-child:hover .mega-menu {
+.nav-links > li.has-dropdown:first-of-type:hover .mega-menu {
   transform: translateX(0) translateY(0);
 }
 /* Last item: right-align */
-.nav-links > li:last-child .mega-menu {
+.nav-links > li.has-dropdown:last-child .mega-menu {
   left: auto; right: 0;
   transform: translateX(0) translateY(-6px);
 }
-.nav-links > li:last-child:hover .mega-menu {
+.nav-links > li.has-dropdown:last-child:hover .mega-menu {
   transform: translateX(0) translateY(0);
 }
 
