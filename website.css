@@ -1143,6 +1143,54 @@ section.hero.on-navy .eyebrow { color: var(--steel-300); }
   pointer-events: none;
 }
 
+/* Pre-footer quote section — two-column layout (used on all sub-pages) -- */
+.quote-section .container {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.quote-section__left .eyebrow {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em;
+  color: var(--steel-500); text-transform: uppercase;
+  display: block;
+}
+.quote-section__left h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 60px); letter-spacing: -0.008em;
+  line-height: 1.04;
+  margin: 12px 0 22px;
+  color: var(--navy-900);
+  text-wrap: balance;
+}
+.quote-section__left p {
+  font-size: 16px; color: var(--steel-700);
+  line-height: 1.6;
+  margin: 0 0 32px;
+  max-width: 420px;
+}
+.quote-section__trust {
+  display: flex; flex-direction: column; gap: 14px;
+  margin-top: 32px; padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+.quote-section__trust-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 14px;
+  color: var(--navy-900);
+}
+.quote-section__trust-item svg {
+  width: 20px; height: 20px;
+  color: var(--navy-900);
+  flex-shrink: 0;
+}
+.quote-section .quote-form {
+  max-width: none;
+  margin-left: 0;
+}
+@media (max-width: 920px) {
+  .quote-section .container { grid-template-columns: 1fr; gap: 48px; }
+  .quote-section__left p { max-width: none; }
+}
+
 /* Footer ------------------------------------------------------------ */
 footer {
   background: var(--graphite); color: var(--paper);
