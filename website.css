@@ -172,17 +172,42 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
 .on-navy .section-head p { color: var(--steel-300); }
 
 /* Top navigation -------------------------------------------------------- */
-.topnav {
+.site-header {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(10, 25, 41, 0.92);
-  backdrop-filter: saturate(140%) blur(14px);
-  -webkit-backdrop-filter: saturate(140%) blur(14px);
+}
+
+/* Utility bar — emergency line + Book Service */
+.topnav-util {
+  background: var(--navy-900);
+  border-bottom: 1px solid rgba(245, 244, 240, 0.08);
+  color: var(--paper);
+}
+.topnav-util-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 9px var(--gutter);
+  max-width: var(--container); margin: 0 auto;
+}
+.btn-util {
+  display: inline-flex; align-items: center;
+  padding: 7px 16px;
+  font-family: var(--font-display); font-weight: 500; font-size: 13px;
+  letter-spacing: 0.02em; white-space: nowrap;
+  background: rgba(245, 244, 240, 0.10);
+  border: 1px solid rgba(245, 244, 240, 0.22);
+  border-radius: var(--rad-sm);
+  color: var(--paper);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+.btn-util:hover { background: rgba(245, 244, 240, 0.16); border-color: rgba(245,244,240,0.38); }
+
+.topnav {
+  background: var(--navy-800);
   border-bottom: 1px solid rgba(245, 244, 240, 0.10);
   color: var(--paper);
 }
 .topnav-inner {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 32px; padding: 18px var(--gutter);
+  gap: 32px; padding: 16px var(--gutter);
   max-width: var(--container); margin: 0 auto;
 }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--paper); }
@@ -275,6 +300,137 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
   background: var(--paper); color: var(--navy-900);
 }
 .topnav .btn-primary:hover { background: #fff; }
+
+/* Mega-menu nav items --------------------------------------------------- */
+.nav-links a::after { display: none; } /* disable underline on trigger links */
+
+.nav-trigger {
+  display: inline-flex; align-items: center; gap: 5px;
+  cursor: default;
+}
+.nav-chevron {
+  flex-shrink: 0; opacity: 0.55;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.has-dropdown:hover .nav-chevron { transform: rotate(180deg); opacity: 1; }
+
+.has-dropdown { position: relative; }
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%; transform: translateX(-50%) translateY(-6px);
+  width: 580px;
+  background: var(--navy-800);
+  border: 1px solid rgba(245, 244, 240, 0.13);
+  border-radius: var(--rad-md);
+  box-shadow: 0 24px 60px rgba(10, 25, 41, 0.45), 0 2px 8px rgba(10, 25, 41, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  margin-top: 12px;
+}
+/* invisible bridge: fills the 12px gap above the menu so hover is preserved */
+.mega-menu::before {
+  content: '';
+  position: absolute;
+  top: -12px; left: 0; right: 0; height: 12px;
+}
+.has-dropdown:hover .mega-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Left column: service links */
+.mega-menu__services { padding: 22px 20px 22px 22px; }
+.mega-menu__label {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--steel-300); opacity: 0.65; margin: 0 0 14px;
+}
+.mega-menu__services ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 1px;
+}
+.mega-menu__services ul li a {
+  display: block; padding: 7px 10px;
+  font-size: 13.5px; font-weight: 500; opacity: 1;
+  color: var(--steel-200);
+  border-radius: var(--rad-sm);
+  transition: background 0.14s ease, color 0.14s ease;
+}
+.mega-menu__services ul li a:hover {
+  background: rgba(245, 244, 240, 0.07);
+  color: var(--paper);
+}
+/* suppress the underline animation on mega-menu links */
+.mega-menu__services ul li a::after { display: none !important; }
+
+/* Right column: emergency panel */
+.mega-menu__panel {
+  background: var(--navy-900);
+  border-left: 1px solid rgba(245, 244, 240, 0.10);
+  padding: 22px 18px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.mega-menu__panel-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #ff7a59;
+  box-shadow: 0 0 0 4px rgba(255, 122, 89, 0.18);
+  animation: emergency-pulse 2.4s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.mega-menu__panel-eyebrow {
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #ff9b80; margin: 0;
+}
+.mega-menu__panel-heading {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 16px; line-height: 1.2; letter-spacing: -0.01em;
+  color: var(--paper); margin: 0;
+}
+.mega-menu__panel-sub {
+  font-size: 12.5px; color: var(--steel-300); margin: 0;
+  line-height: 1.5; flex-grow: 1;
+}
+.mega-menu a.mega-menu__panel-phone {
+  font-family: var(--font-mono); font-size: 13px;
+  font-weight: 500; letter-spacing: 0.04em;
+  color: var(--paper); display: block; opacity: 1;
+  transition: opacity 0.18s ease;
+}
+.mega-menu a.mega-menu__panel-phone:hover { opacity: 0.75; }
+.mega-menu a.mega-menu__panel-btn {
+  display: block; text-align: center;
+  padding: 10px 14px;
+  background: var(--paper); color: var(--navy-900);
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 13px; letter-spacing: 0.01em;
+  border-radius: var(--rad-sm);
+  transition: background 0.18s ease;
+}
+.mega-menu a.mega-menu__panel-btn:hover { background: #fff; }
+
+/* First item: left-align the menu so it doesn't clip the viewport */
+.nav-links > li:first-child .mega-menu {
+  left: 0; transform: translateX(0) translateY(-6px);
+}
+.nav-links > li:first-child:hover .mega-menu {
+  transform: translateX(0) translateY(0);
+}
+/* Last item: right-align */
+.nav-links > li:last-child .mega-menu {
+  left: auto; right: 0;
+  transform: translateX(0) translateY(-6px);
+}
+.nav-links > li:last-child:hover .mega-menu {
+  transform: translateX(0) translateY(0);
+}
 
 /* ─────────────────────────────────────────────────────────────────
    Lead-gen quote form (lives in the hero right column).
