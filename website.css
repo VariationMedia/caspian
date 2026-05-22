@@ -212,8 +212,8 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
 }
 .brand { display: flex; align-items: center; gap: 12px; color: var(--paper); }
 .brand-badge {
-  height: 68px;
-  width: 200px;
+  height: 88px;
+  width: 260px;
   max-width: none;
   display: block;
   color: var(--paper);
