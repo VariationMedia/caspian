@@ -579,6 +579,14 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
     );
   z-index: -1;
 }
+/* Sub-page heroes — dark navy overlay replaces the home-page cream wash.
+   Also invert all text to paper/white to match the dark background. */
+section.hero.on-navy::after {
+  background: rgba(10, 25, 41, 0.92);
+}
+section.hero.on-navy h1 { color: var(--paper); }
+section.hero.on-navy p.lead,
+section.hero.on-navy .eyebrow { color: var(--steel-300); }
 .hero > .container { position: relative; z-index: 1; }
 .hero-grid {
   display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px;
