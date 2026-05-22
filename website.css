@@ -451,7 +451,15 @@ section.on-graphite { background: var(--graphite); color: var(--paper); }
     0 2px 6px rgba(10, 25, 41, 0.05);
   position: relative;
   font-size: 14px;
+  color: var(--navy-900);
 }
+/* Inside a quote-form card, restore light-bg defaults even when the
+   ancestor section uses .on-navy color inversion. */
+.on-navy .quote-form { color: var(--navy-900); }
+.on-navy .quote-form .btn-primary {
+  background: var(--navy-900); color: var(--paper);
+}
+.on-navy .quote-form .btn-primary:hover { background: var(--navy-700); }
 .quote-form__head h3 {
   font-family: var(--font-display); font-weight: 700;
   font-size: 20px; line-height: 1.05; letter-spacing: -0.005em;
