@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caspian — Plumbing &amp; Mechanical · Toronto, ON</title>
+  <meta name="description" content="Caspian is a modern mechanical contractor serving the Greater Toronto Area's premier builders, homeowners, and operators. Twenty-four-hour service. Lifetime workmanship." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="website.css" />
+</head>
+<body>
+
+<!-- ─── Reusable SVG: small hex with C inside, full hex badge, and icons ─── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Compact icon-only mark (kept for tiny placements) -->
+    <symbol id="hex-c" viewBox="0 0 64 64">
+      <path d="M 17.07 4 L 46.93 4 L 62 32 L 46.93 60 L 17.07 60 L 2 32 Z"
+            fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="miter" />
+      <path d="M 44 19 A 16 16 0 1 0 44 45"
+            fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="butt" />
+    </symbol>
+
+    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         PRIMARY LOGOMARK — LM·02 Hex Badge (horizontal)
+         Frame + inner hairline + C monogram + divider + CASPIAN +
+         justified PLUMBING & MECHANICAL descriptor. Color is driven by
+         the parent's `color` property via currentColor — same symbol
+         works on light or dark backgrounds.
+         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <symbol id="hex-badge" viewBox="0 0 640 220">
+      <!-- outer hex frame -->
+      <path d="M 56 3 L 584 3 L 637 110 L 584 217 L 56 217 L 3 110 Z"
+            fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" />
+      <!-- inner hairline -->
+      <path d="M 64 13 L 576 13 L 627 110 L 576 207 L 64 207 L 13 110 Z"
+            fill="none" stroke="currentColor" stroke-opacity="0.32" stroke-width="1" stroke-linejoin="miter" />
+      <!-- C monogram (240° arc opening right) -->
+      <path d="M 180.5 62.4 A 55 55 0 1 0 180.5 157.6"
+            fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="butt" />
+      <!-- vertical divider -->
+      <line x1="234" y1="56" x2="234" y2="164"
+            stroke="currentColor" stroke-opacity="0.32" stroke-width="1.5" />
+      <!-- CASPIAN wordmark -->
+      <text x="261" y="124"
+            font-family="Archivo, sans-serif" font-weight="700"
+            font-size="58" letter-spacing="2.32"
+            fill="currentColor">CASPIAN</text>
+      <!-- descriptor, justified to span the wordmark width -->
+      <text x="261" y="158"
+            font-family="Archivo, sans-serif" font-weight="500"
+            font-size="11.5" fill="currentColor" opacity="0.7"
+            textLength="278" lengthAdjust="spacing">PLUMBING &amp; MECHANICAL</text>
+    </symbol>
+
+    <symbol id="ic-phone" viewBox="0 0 20 20">
+      <path d="M3 4.5C3 3.67 3.67 3 4.5 3h2c.65 0 1.22.42 1.42 1.04l.7 2.1c.16.48.04 1-.32 1.36L7.13 8.66a11 11 0 0 0 4.2 4.2l1.16-1.16c.36-.36.88-.48 1.36-.32l2.1.7c.62.2 1.04.77 1.04 1.42v2c0 .83-.67 1.5-1.5 1.5C8.94 17 3 11.06 3 4.5Z"
+            fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="ic-arrow" viewBox="0 0 16 16">
+      <path d="M4 8 L12 8 M8 4 L12 8 L8 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <!-- Shield with check — warranty trust mark. -->
+    <symbol id="ic-shield" viewBox="0 0 24 24">
+      <path d="M12 2 L4 5 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V5 Z"
+            fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+      <path d="M8.5 12 L11 14.5 L15.5 9.5"
+            fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
+    </symbol>
+
+    <!-- Filled star — used for the Google rating row. -->
+    <symbol id="ic-star" viewBox="0 0 24 24">
+      <path d="M12 2 L14.85 8.4 L21.8 9.3 L16.65 14.05 L18.1 21 L12 17.45 L5.9 21 L7.35 14.05 L2.2 9.3 L9.15 8.4 Z" fill="currentColor" />
+    </symbol>
+
+    <!-- Google "G" mark, simplified, single-color. -->
+    <symbol id="ic-google" viewBox="0 0 24 24">
+      <path d="M12 11v3.2h4.6c-.2 1.1-1.4 3.3-4.6 3.3-2.8 0-5-2.3-5-5.1s2.2-5.1 5-5.1c1.6 0 2.6.7 3.2 1.3l2.2-2.1C16 5.2 14.2 4.4 12 4.4 7.6 4.4 4 8 4 12.4s3.6 8 8 8c4.6 0 7.7-3.2 7.7-7.8 0-.5 0-.9-.1-1.3H12Z"
+            fill="currentColor" />
+    </symbol>
+
+    <!-- Social glyphs (single-color, currentColor) -->
+    <symbol id="ic-instagram" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" />
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6" />
+      <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" />
+    </symbol>
+    <symbol id="ic-facebook" viewBox="0 0 24 24">
+      <path d="M13.5 22V13h2.6l.4-3.2h-3V7.8c0-.9.3-1.6 1.7-1.6h1.8V3.3C16.6 3.2 15.5 3 14.3 3c-2.5 0-4.2 1.5-4.2 4.3v2.5H7.4V13h2.7v9h3.4Z"
+            fill="currentColor" />
+    </symbol>
+    <symbol id="ic-linkedin" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+      <rect x="6.5" y="9.5" width="2.4" height="8" fill="currentColor" />
+      <circle cx="7.7" cy="7" r="1.4" fill="currentColor" />
+      <path d="M11.5 9.5 h2.4 v1.2 c.5-.9 1.6-1.4 2.8-1.4 2 0 2.8 1.3 2.8 3.4 v4.8 h-2.4 v-4.2 c0-1.1-.4-1.8-1.4-1.8s-1.8.7-1.8 1.9 v4.1 h-2.4 z"
+            fill="currentColor" />
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ═════════════════════════════════════════════════════════════════ NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a class="brand" href="#top" aria-label="Caspian — Plumbing &amp; Mechanical home">
+      <svg class="brand-badge" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#hex-badge" /></svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#residential">Residential</a></li>
+      <li><a href="#commercial">Commercial</a></li>
+      <li><a href="#builders">Builders</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="nav-emergency" href="tel:4165550911" aria-label="Call 24/7 emergency line">
+        <span class="nav-emergency__dot"></span>
+        <span class="nav-emergency__label">24/7 EMERGENCY</span>
+        <span class="nav-emergency__num">(416) 555-0911</span>
+      </a>
+      <a class="btn btn-primary" href="#quote">Get a quote</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═════════════════════════════════════════════════════════════════ HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1>
+          Precision plumbing &amp; mechanical for builders, homes, <em>and emergencies.</em>
+        </h1>
+        <p class="lead">
+          Caspian is a modern mechanical contractor serving Toronto's premier
+          builders, homeowners, and operators across the GTA. Twenty-four-hour
+          service. Lifetime workmanship.
+        </p>
+
+        <div class="hero-ctas">
+          <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Request a quote</a>
+          <a class="btn btn-ghost btn--lg" href="tel:4165550911">
+            <svg width="16" height="16"><use href="#ic-phone" /></svg> 24/7 EMERGENCY · (416) 555-0911
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <form class="quote-form" id="quote" onsubmit="event.preventDefault();">
+          <div class="quote-form__head">
+            <h3>Tell us about your project.</h3>
+          </div>
+
+          <div class="quote-form__group">
+            <label class="quote-form__label">I need help with</label>
+            <div class="quote-form__chips">
+              <input type="radio" id="t-service" name="type" value="service" checked />
+              <label for="t-service">Service call</label>
+              <input type="radio" id="t-reno" name="type" value="renovation" />
+              <label for="t-reno">Renovation</label>
+              <input type="radio" id="t-newbuild" name="type" value="newbuild" />
+              <label for="t-newbuild">New build</label>
+              <input type="radio" id="t-mech" name="type" value="mechanical" />
+              <label for="t-mech">Mechanical / boiler</label>
+              <input type="radio" id="t-builder" name="type" value="builder" />
+              <label for="t-builder">Builder enquiry</label>
+            </div>
+          </div>
+
+          <div class="quote-form__group">
+            <label class="quote-form__label">When do you need it?</label>
+            <div class="quote-form__chips quote-form__chips--sm">
+              <input type="radio" id="w-emergency" name="when" value="emergency" />
+              <label for="w-emergency">Emergency</label>
+              <input type="radio" id="w-month" name="when" value="month" checked />
+              <label for="w-month">This month</label>
+              <input type="radio" id="w-quarter" name="when" value="quarter" />
+              <label for="w-quarter">1–3 months</label>
+              <input type="radio" id="w-planning" name="when" value="planning" />
+              <label for="w-planning">Planning</label>
+            </div>
+          </div>
+
+          <div class="quote-form__row quote-form__row--two">
+            <div class="quote-form__field">
+              <label for="qf-name" class="quote-form__label">Name</label>
+              <input type="text" id="qf-name" placeholder="First &amp; last" autocomplete="name" />
+            </div>
+            <div class="quote-form__field">
+              <label for="qf-phone" class="quote-form__label">Phone</label>
+              <input type="tel" id="qf-phone" placeholder="(416) 555-0142" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="quote-form__field">
+            <label for="qf-email" class="quote-form__label">Email</label>
+            <input type="email" id="qf-email" placeholder="you@domain.com" autocomplete="email" />
+          </div>
+
+          <div class="quote-form__field">
+            <label for="qf-desc" class="quote-form__label">Project details</label>
+            <textarea id="qf-desc" rows="3" placeholder="Address, scope, timeline — anything you can share."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn--lg btn--arrow quote-form__submit">Request a quote</button>
+
+          <a class="google-row google-row--in-form" href="#" aria-label="See our Google reviews">
+            <span class="google-row__stars">
+              <svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg>
+            </span>
+            <span class="google-row__score"><strong>5.0</strong></span>
+            <span class="google-row__rule"></span>
+            <span class="google-row__src">
+              <svg class="google-row__g"><use href="#ic-google" /></svg>
+              142 verified Google reviews
+            </span>
+          </a>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Trust strip spans the full width of the hero, below the
+         content/form grid. Reinforces the trust signals across the
+         entire hero footprint. -->
+    <div class="hero-trust hero-trust--full">
+      <div class="item"><span class="num">24/7</span><span class="label">Emergency response</span></div>
+      <div class="item"><span class="num">1<sup>yr</sup></span><span class="label">Workmanship warranty</span></div>
+      <div class="item"><span class="num">40+</span><span class="label">Builder partners</span></div>
+      <div class="item"><span class="num">5.0</span><span class="label">Google · 142 reviews</span></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════ WARRANTY BANNER -->
+<section class="warranty-strip on-navy">
+  <div class="container">
+    <svg class="warranty-strip__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
+    <div class="warranty-strip__text">
+      <strong>1-year warranty on all workmanship.</strong>
+      <span>Included with every project · Provided in writing · No fine print</span>
+    </div>
+    <a class="warranty-strip__cta" href="#contact">
+      Learn more <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ AUDIENCE CARDS -->
+<section class="audience" id="builders">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dash"></span>THREE WAYS WE WORK</span>
+        <h2>Built for the people who care<br/>how it's installed.</h2>
+      </div>
+      <p>
+        From builder partnerships and high-end residential to twenty-four-hour
+        service calls — every project gets the same engineering rigour.
+      </p>
+    </div>
+    <div class="audience-grid">
+
+      <article class="audience-card">
+        <span class="num">01 — BUILDERS &amp; CONTRACTORS</span>
+        <h3>Trusted by builders.</h3>
+        <p>Reliable subcontracting for builders, developers, GCs, and design-build teams. Scheduled, organized, and on budget.</p>
+        <ul>
+          <li>Multi-unit and custom residential</li>
+          <li>Coordinated trades + shop drawings</li>
+          <li>BOMs and progress billing</li>
+          <li>Long-term partnership pricing</li>
+        </ul>
+        <a class="cta" href="#contact">Partner with Caspian <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+      </article>
+
+      <article class="audience-card">
+        <span class="num">02 — RESIDENTIAL PROJECTS</span>
+        <h3>Renovation-grade work.</h3>
+        <p>Premium plumbing and mechanical for renovation clients and design-conscious homeowners. Clean installs, communicated clearly.</p>
+        <ul>
+          <li>Whole-home re-pipes and retrofits</li>
+          <li>Hydronic + radiant heating</li>
+          <li>Kitchen, bath, laundry rough-ins</li>
+          <li>Tankless &amp; high-efficiency systems</li>
+        </ul>
+        <a class="cta" href="#contact">Start a project <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+      </article>
+
+      <article class="audience-card">
+        <span class="num">03 — SERVICE CALLS</span>
+        <h3>On site, today.</h3>
+        <p>Twenty-four-hour emergency service across the GTA. Real technicians, real diagnostics, no upsell.</p>
+        <ul>
+          <li>Leak detection &amp; repair</li>
+          <li>Drain &amp; sewer service</li>
+          <li>Water heater replacement</li>
+          <li>Boiler &amp; furnace diagnostics</li>
+        </ul>
+        <a class="cta" href="tel:4165550142">Call now <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dash"></span>WHAT WE DO</span>
+        <h2>A full mechanical capability,<br/>under one roof.</h2>
+      </div>
+      <p>Plumbing, heating, drainage, and mechanical systems for residential, multi-unit, and light commercial work.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <span class="service-num">/ 01</span>
+        <div>
+          <div class="service-name">New construction plumbing</div>
+          <div class="service-desc">Rough-in, supply &amp; waste, fixture installation, pressure testing.</div>
+        </div>
+        <span class="service-arrow"><svg width="14" height="14"><use href="#ic-arrow" /></svg></span>
+      </div>
+      <div class="service-item">
+        <span class="service-num">/ 02</span>
+        <div>
+          <div class="service-name">Hydronic &amp; radiant heating</div>
+          <div class="service-desc">Boiler systems, in-floor radiant, manifolds, controls.</div>
+        </div>
+        <span class="service-arrow"><svg width="14" height="14"><use href="#ic-arrow" /></svg></span>
+      </div>
+      <div class="service-item">
+        <span class="service-num">/ 03</span>
+        <div>
+          <div class="service-name">Renovation &amp; retrofit</div>
+          <div class="service-desc">Whole-home re-pipes, kitchen and bath rebuilds, system upgrades.</div>
+        </div>
+        <span class="service-arrow"><svg width="14" height="14"><use href="#ic-arrow" /></svg></span>
+      </div>
+      <div class="service-item">
+        <span class="service-num">/ 04</span>
+        <div>
+          <div class="service-name">Drainage &amp; sewer</div>
+          <div class="service-desc">Diagnostics, repair, replacement, and trenchless lining.</div>
+        </div>
+        <span class="service-arrow"><svg width="14" height="14"><use href="#ic-arrow" /></svg></span>
+      </div>
+      <div class="service-item">
+        <span class="service-num">/ 05</span>
+        <div>
+          <div class="service-name">Water heaters &amp; tankless</div>
+          <div class="service-desc">High-efficiency tank and on-demand units. Same-day install on most makes.</div>
+        </div>
+        <span class="service-arrow"><svg width="14" height="14"><use href="#ic-arrow" /></svg></span>
+      </div>
+      <div class="service-item">
+        <span class="service-num">/ 06</span>
+        <div>
+          <div class="service-name">24/7 emergency service</div>
+          <div class="service-desc">Real technicians, fully stocked trucks, dispatched in under an hour.</div>
+        </div>
+        <span class="service-arrow"><svg width="14" height="14"><use href="#ic-arrow" /></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ FEATURED PROJECT -->
+<section class="featured-project on-navy" id="projects">
+  <div class="fp-grid">
+    <div class="fp-content">
+      <span class="tag"><span class="dash"></span>FEATURED PROJECT · 2026</span>
+      <h3>Yorkville six-unit, complete mechanical scope.</h3>
+      <p>
+        Designed and installed in collaboration with Brookline Homes. Full
+        plumbing rough-in, hydronic heating across six units, central
+        domestic hot water, and rooftop mechanical with sub-metering.
+      </p>
+      <div class="fp-details">
+        <div class="item">
+          <span class="label">Builder</span>
+          <span class="val">Brookline Homes</span>
+        </div>
+        <div class="item">
+          <span class="label">Scope</span>
+          <span class="val">Plumbing + Mechanical</span>
+        </div>
+        <div class="item">
+          <span class="label">Delivered</span>
+          <span class="val">Apr 2026</span>
+        </div>
+      </div>
+      <div class="hero-ctas" style="margin-top: 18px;">
+        <a class="btn btn-primary btn--arrow" href="#contact">View case study</a>
+      </div>
+    </div>
+    <div class="fp-image">
+      <div class="placeholder-img">
+        <span class="name">▢  PHOTO · YORKVILLE MECHANICAL ROOM</span>
+      </div>
+      <div class="corner-meta">
+        <span class="chip">PROJ · 26·014</span>
+        <span class="chip">04 / 22</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ STATS -->
+<section class="stats compact">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat"><div class="num">40<sup>+</sup></div><span class="label">Builder partners</span></div>
+      <div class="stat"><div class="num">180<sup>+</sup></div><span class="label">Projects delivered</span></div>
+      <div class="stat"><div class="num">1<sup>yr</sup></div><span class="label">Workmanship warranty</span></div>
+      <div class="stat"><div class="num">&lt;1<sup>hr</sup></div><span class="label">Emergency response</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ MORE PROJECTS -->
+<section class="on-paper-2">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="tag"><span class="dash"></span>RECENT WORK</span>
+        <h2>Selected projects.</h2>
+      </div>
+      <p>A small slice of recent residential, multi-unit, and renovation work delivered across the Lower Mainland.</p>
+    </div>
+
+    <div class="proj-grid">
+      <article class="proj-card">
+        <div class="img-wrap">
+          <div class="placeholder-img"><span class="name">▢  LEASIDE RE-PIPE</span></div>
+          <div class="corner-meta"><span class="chip">26·011</span></div>
+        </div>
+        <div class="meta">
+          <span class="name">Leaside whole-home re-pipe</span>
+          <span class="year">2026</span>
+        </div>
+        <p class="blurb">Full PEX-A re-pipe across four floors with new manifold and tankless system.</p>
+      </article>
+
+      <article class="proj-card">
+        <div class="img-wrap">
+          <div class="placeholder-img"><span class="name">▢  FOREST HILL NEW BUILD</span></div>
+          <div class="corner-meta"><span class="chip">25·086</span></div>
+        </div>
+        <div class="meta">
+          <span class="name">Forest Hill custom build</span>
+          <span class="year">2025</span>
+        </div>
+        <p class="blurb">Hydronic radiant on three floors with snow-melt at driveway and front steps.</p>
+      </article>
+
+      <article class="proj-card">
+        <div class="img-wrap">
+          <div class="placeholder-img"><span class="name">▢  DISTILLERY DISTRICT COMMERCIAL</span></div>
+          <div class="corner-meta"><span class="chip">25·041</span></div>
+        </div>
+        <div class="meta">
+          <span class="name">Distillery District café tenant fit-out</span>
+          <span class="year">2025</span>
+        </div>
+        <p class="blurb">Plumbing, drainage, and grease management for a 60-seat ground-floor café.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ PROCESS -->
+<section class="process on-navy" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="tag" style="color: var(--steel-300)"><span class="dash"></span>HOW WE WORK</span>
+        <h2 style="color: var(--paper)">A predictable<br/>four-step engagement.</h2>
+      </div>
+      <p>Built for builders who hate surprises and homeowners who want to know what's happening, when.</p>
+    </div>
+    <div class="process-grid">
+      <div class="step">
+        <div class="num">01 / SCOPE</div>
+        <h4>Site walk &amp; estimate</h4>
+        <p>We visit the site, document the existing systems, and return a fixed-fee estimate inside 48 hours.</p>
+      </div>
+      <div class="step">
+        <div class="num">02 / DESIGN</div>
+        <h4>Drawings &amp; schedule</h4>
+        <p>Shop drawings, fixture and BOM packages, and a build schedule that locks into your trade calendar.</p>
+      </div>
+      <div class="step">
+        <div class="num">03 / BUILD</div>
+        <h4>Installation &amp; inspection</h4>
+        <p>Rough-in, pressure-test, and rough inspection delivered to spec — and to schedule. Every time.</p>
+      </div>
+      <div class="step">
+        <div class="num">04 / HAND-OFF</div>
+        <h4>Commissioning &amp; warranty</h4>
+        <p>System start-up, owner walkthrough, and a 1-year workmanship warranty in writing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ TESTIMONIAL -->
+<section class="testimonial">
+  <div class="container">
+    <a class="google-row google-row--lg" href="#" aria-label="See our Google reviews">
+      <span class="google-row__stars">
+        <svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg>
+      </span>
+      <span class="google-row__score"><strong>5.0</strong> · 142 verified Google reviews</span>
+    </a>
+    <blockquote>
+      Caspian is the only mechanical sub I've worked with who shows up to the
+      pre-construction meeting with a stamped drawing set. They make the rest
+      of my trades better.
+    </blockquote>
+    <div class="author">
+      <div class="avatar"></div>
+      <div>
+        <div class="name">Adrian Reyes</div>
+        <div class="role">PRINCIPAL · BROOKLINE HOMES</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ CTA -->
+<section class="final-cta on-navy" id="contact">
+  <svg class="watermark" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#hex-badge" /></svg>
+  <div class="container">
+    <div class="left">
+      <span class="tag" style="color: var(--steel-300)"><span class="dash"></span>START A PROJECT · OR JUST GET A QUOTE</span>
+      <h2>Let's get<br/>your build moving.</h2>
+    </div>
+    <div class="right">
+      <p>Send a quick brief and we'll come back inside 24 hours — usually the same day. Emergency calls jump the queue.</p>
+      <div class="ctas">
+        <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Request a quote</a>
+        <a class="btn btn-ghost btn--lg" href="tel:4165550142">
+          <svg width="16" height="16"><use href="#ic-phone" /></svg> Office · (416) 555-0142
+        </a>
+        <a class="btn btn-ghost btn--lg" href="tel:4165550911" style="color: #ff7a59; border-color: rgba(255,122,89,0.4);">
+          <svg width="16" height="16"><use href="#ic-phone" /></svg> 24/7 · (416) 555-0911
+        </a>
+      </div>
+      <div class="contact-line">
+        <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fba8bea9adb2b8bebbb8baa8abb2bab5d5b9aeb2b7bf">[email&#160;protected]</a></span>
+        <span>TORONTO · NORTH YORK · ETOBICOKE · MISSISSAUGA · OAKVILLE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <svg class="footer-badge" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#hex-badge" /></svg>
+        <p class="descriptor">
+          A modern mechanical contractor serving Toronto and
+          the Greater Toronto Area's builders, homeowners,
+          and operators.
+        </p>
+        <a class="footer-phone" href="tel:4165550142">OFFICE — 416 · 555 · 0142</a>
+        <a class="footer-phone footer-phone--emergency" href="tel:4165550911">24/7 EMERGENCY — 416 · 555 · 0911</a>
+        <span style="font-family: var(--font-mono); font-size:12px; letter-spacing:0.08em; color: var(--steel-300)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9faecfbffe0eaece9eae8faf9e0e8e787ebfce0e5ed">[email&#160;protected]</a></span>
+
+        <div class="footer-pay">
+          <span class="footer-pay__label">PAYMENTS ACCEPTED</span>
+          <div class="footer-pay__row">
+            <span class="pay-card pay-card--visa">
+              <span class="pay-card__name">VISA</span>
+            </span>
+            <span class="pay-card pay-card--mc">
+              <span class="pay-card__rings"><span></span><span></span></span>
+              <span class="pay-card__name">mastercard</span>
+            </span>
+            <span class="pay-card pay-card--amex">
+              <span class="pay-card__name">AMEX</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">New construction</a></li>
+          <li><a href="#services">Renovations</a></li>
+          <li><a href="#services">Heating systems</a></li>
+          <li><a href="#services">Drainage &amp; sewer</a></li>
+          <li><a href="#services">24/7 emergency</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About Caspian</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#builders">For builders</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Service area</h5>
+        <ul>
+          <li><a href="#">Toronto</a></li>
+          <li><a href="#">North York</a></li>
+          <li><a href="#">Etobicoke</a></li>
+          <li><a href="#">Mississauga</a></li>
+          <li><a href="#">Oakville &amp; GTA West</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <div class="footer-social">
+        <span class="footer-social__label">FOLLOW</span>
+        <a href="#" aria-label="Instagram" class="social-icon"><svg viewBox="0 0 24 24"><use href="#ic-instagram" /></svg></a>
+        <a href="#" aria-label="Facebook" class="social-icon"><svg viewBox="0 0 24 24"><use href="#ic-facebook" /></svg></a>
+        <a href="#" aria-label="LinkedIn" class="social-icon"><svg viewBox="0 0 24 24"><use href="#ic-linkedin" /></svg></a>
+      </div>
+      <a href="#" class="google-pill">
+        <span class="google-pill__stars">
+          <svg viewBox="0 0 24 24"><use href="#ic-star" /></svg><svg viewBox="0 0 24 24"><use href="#ic-star" /></svg><svg viewBox="0 0 24 24"><use href="#ic-star" /></svg><svg viewBox="0 0 24 24"><use href="#ic-star" /></svg><svg viewBox="0 0 24 24"><use href="#ic-star" /></svg>
+        </span>
+        <span class="google-pill__text">
+          <strong>5.0</strong> on Google · 142 reviews
+        </span>
+        <svg class="google-pill__arrow" viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 CASPIAN PLUMBING &amp; MECHANICAL LTD.</span>
+      <span>LICENSED &amp; INSURED · ONTARIO</span>
+      <span>BUILT IN TORONTO · EST 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky mobile call button: split between office and emergency -->
+<div class="mobile-call">
+  <a class="mobile-call__half" href="tel:4165550142">
+    <svg><use href="#ic-phone" /></svg>
+    <span class="mobile-call__label">OFFICE</span>
+    <span class="mobile-call__num">416 555 0142</span>
+  </a>
+  <span class="mobile-call__div"></span>
+  <a class="mobile-call__half mobile-call__half--emergency" href="tel:4165550911">
+    <svg><use href="#ic-phone" /></svg>
+    <span class="mobile-call__label">24/7</span>
+    <span class="mobile-call__num">416 555 0911</span>
+  </a>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
