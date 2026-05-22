@@ -3,12 +3,247 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mechanical &amp; HVAC Services Toronto · Caspian</title>
-  <meta name="description" content="Caspian installs and services furnaces, boilers, heat pumps, air conditioning, and duct systems across the Greater Toronto Area. Licensed gas fitters, 24/7 emergency HVAC response, no after-hours surcharge." />
+  <title>About Caspian · Toronto Plumbing &amp; Mechanical Contractor</title>
+  <meta name="description" content="Caspian is a Toronto-based plumbing and mechanical contractor serving builders, property managers, and homeowners across the GTA. Licensed, insured, and built on documented craft." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="website.css" />
+
+  <!-- Page-specific styles for sections not in website.css -->
+  <style>
+    /* ── Hero: at-a-glance stats card (right column) ─────────────────── */
+    .ab-glance {
+      background: rgba(245, 244, 240, 0.04);
+      border: 1px solid var(--line-rev);
+      padding: 36px 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .ab-glance__head {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line-rev);
+    }
+    .ab-glance__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--steel-300);
+      text-transform: uppercase;
+    }
+    .ab-glance__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: -0.002em;
+      color: var(--paper);
+      margin: 0;
+    }
+    .ab-glance__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px 32px;
+    }
+    .ab-glance__item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .ab-glance__num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--paper);
+    }
+    .ab-glance__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--steel-300);
+      text-transform: uppercase;
+    }
+    .ab-glance__foot {
+      padding-top: 22px;
+      border-top: 1px solid var(--line-rev);
+      font-size: 13px;
+      color: var(--steel-300);
+      line-height: 1.55;
+    }
+
+    /* ── Story section: two-column with side label + body copy ───────── */
+    .ab-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .ab-story-body p {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--steel-700);
+      margin: 0 0 22px;
+    }
+    .ab-story-body p:last-child { margin-bottom: 0; }
+    .ab-story-body p strong { color: var(--navy-900); font-weight: 600; }
+
+    /* ── Values: 4-up grid using existing .audience-card class ───────── */
+    .ab-values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    /* ── Team grid (3-up, typographic, no photos) ────────────────────── */
+    .ab-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--line);
+      margin-top: 32px;
+    }
+    .ab-team-item {
+      padding: 40px 32px 36px 0;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ab-team-item:last-child { border-right: none; padding-right: 0; }
+    .ab-team-item:not(:first-child) { padding-left: 32px; }
+    .ab-team-item__role {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--steel-500);
+      text-transform: uppercase;
+    }
+    .ab-team-item__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.003em;
+      line-height: 1.1;
+      color: var(--navy-900);
+      margin: 0;
+    }
+    .ab-team-item__bio {
+      font-size: 14px;
+      color: var(--steel-700);
+      line-height: 1.55;
+      margin: 6px 0 0;
+    }
+
+    /* ── Certifications strip ────────────────────────────────────────── */
+    .ab-certs {
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .ab-certs__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .ab-certs__label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--steel-500);
+      text-transform: uppercase;
+    }
+    .ab-certs__list {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      flex-wrap: wrap;
+    }
+    .ab-cert {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy-900);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--navy-900);
+    }
+
+    /* ── Quote section (mirrors plumbing.html pattern) ───────────────── */
+    .quote-section .container {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .quote-section__left h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(36px, 4.5vw, 60px);
+      letter-spacing: -0.008em;
+      line-height: 1.04;
+      margin: 12px 0 22px;
+      color: var(--navy-900);
+      text-wrap: balance;
+    }
+    .quote-section__left p {
+      font-size: 16px;
+      color: var(--steel-700);
+      line-height: 1.6;
+      margin: 0 0 32px;
+      max-width: 420px;
+    }
+    .quote-section__trust {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .quote-section__trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--navy-900);
+    }
+    .quote-section__trust-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--navy-900);
+      flex-shrink: 0;
+    }
+    .quote-section .quote-form {
+      max-width: none;
+      margin-left: 0;
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .ab-values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 920px) {
+      .ab-story-grid { grid-template-columns: 1fr; gap: 36px; }
+      .ab-values-grid { grid-template-columns: 1fr; }
+      .ab-team-grid { grid-template-columns: 1fr; }
+      .ab-team-item { border-right: none; border-bottom: 1px solid var(--line); padding-right: 0; }
+      .ab-team-item:not(:first-child) { padding-left: 0; }
+      .ab-team-item:last-child { border-bottom: none; }
+      .ab-glance__grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+      .quote-section .container { grid-template-columns: 1fr; gap: 48px; }
+      .quote-section__left p { max-width: none; }
+      .ab-certs__inner { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .ab-certs__list { gap: 22px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -23,32 +258,20 @@
             fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="butt" />
     </symbol>
 
-    <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         PRIMARY LOGOMARK — LM·02 Hex Badge (horizontal)
-         Frame + inner hairline + C monogram + divider + CASPIAN +
-         justified PLUMBING & MECHANICAL descriptor. Color is driven by
-         the parent's `color` property via currentColor — same symbol
-         works on light or dark backgrounds.
-         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+    <!-- PRIMARY LOGOMARK — LM·02 Hex Badge (horizontal) -->
     <symbol id="hex-badge" viewBox="0 0 640 220">
-      <!-- outer hex frame -->
       <path d="M 56 3 L 584 3 L 637 110 L 584 217 L 56 217 L 3 110 Z"
             fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="miter" />
-      <!-- inner hairline -->
       <path d="M 64 13 L 576 13 L 627 110 L 576 207 L 64 207 L 13 110 Z"
             fill="none" stroke="currentColor" stroke-opacity="0.32" stroke-width="1" stroke-linejoin="miter" />
-      <!-- C monogram (240° arc opening right) -->
       <path d="M 180.5 62.4 A 55 55 0 1 0 180.5 157.6"
             fill="none" stroke="currentColor" stroke-width="18" stroke-linecap="butt" />
-      <!-- vertical divider -->
       <line x1="234" y1="56" x2="234" y2="164"
             stroke="currentColor" stroke-opacity="0.32" stroke-width="1.5" />
-      <!-- CASPIAN wordmark -->
       <text x="261" y="124"
             font-family="Archivo, sans-serif" font-weight="700"
             font-size="58" letter-spacing="2.32"
             fill="currentColor">CASPIAN</text>
-      <!-- descriptor, justified to span the wordmark width -->
       <text x="261" y="158"
             font-family="Archivo, sans-serif" font-weight="500"
             font-size="11.5" fill="currentColor" opacity="0.7"
@@ -62,27 +285,19 @@
     <symbol id="ic-arrow" viewBox="0 0 16 16">
       <path d="M4 8 L12 8 M8 4 L12 8 L8 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
-
-    <!-- Shield with check — warranty trust mark. -->
     <symbol id="ic-shield" viewBox="0 0 24 24">
       <path d="M12 2 L4 5 V12 C4 17 7.5 21 12 22 C16.5 21 20 17 20 12 V5 Z"
             fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
       <path d="M8.5 12 L11 14.5 L15.5 9.5"
             fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" />
     </symbol>
-
-    <!-- Filled star — used for the Google rating row. -->
     <symbol id="ic-star" viewBox="0 0 24 24">
       <path d="M12 2 L14.85 8.4 L21.8 9.3 L16.65 14.05 L18.1 21 L12 17.45 L5.9 21 L7.35 14.05 L2.2 9.3 L9.15 8.4 Z" fill="currentColor" />
     </symbol>
-
-    <!-- Google "G" mark, simplified, single-color. -->
     <symbol id="ic-google" viewBox="0 0 24 24">
       <path d="M12 11v3.2h4.6c-.2 1.1-1.4 3.3-4.6 3.3-2.8 0-5-2.3-5-5.1s2.2-5.1 5-5.1c1.6 0 2.6.7 3.2 1.3l2.2-2.1C16 5.2 14.2 4.4 12 4.4 7.6 4.4 4 8 4 12.4s3.6 8 8 8c4.6 0 7.7-3.2 7.7-7.8 0-.5 0-.9-.1-1.3H12Z"
             fill="currentColor" />
     </symbol>
-
-    <!-- Social glyphs (single-color, currentColor) -->
     <symbol id="ic-instagram" viewBox="0 0 24 24">
       <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.6" />
       <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6" />
@@ -126,10 +341,8 @@
 
       <ul class="nav-links" role="menubar">
 
-        <!-- Home -->
         <li role="none"><a href="index.html" role="menuitem">Home</a></li>
 
-        <!-- Plumbing -->
         <li class="has-dropdown" role="none">
           <a href="plumbing.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Plumbing
@@ -161,7 +374,6 @@
           </div>
         </li>
 
-        <!-- Mechanical & HVAC -->
         <li class="has-dropdown" role="none">
           <a href="mechanical-hvac.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Mechanical &amp; HVAC
@@ -192,7 +404,6 @@
           </div>
         </li>
 
-        <!-- Commercial -->
         <li class="has-dropdown" role="none">
           <a href="commercial.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Commercial
@@ -221,7 +432,6 @@
           </div>
         </li>
 
-        <!-- Builders -->
         <li class="has-dropdown" role="none">
           <a href="builders.html" class="nav-trigger" role="menuitem" aria-haspopup="true">
             Builders
@@ -260,299 +470,241 @@
 </header>
 
 <!-- ═════════════════════════════════════════════════════════════════ HERO -->
-<section class="hero on-navy" id="top" style="background: var(--navy-900); padding: 56px 0 72px;">
+<section class="hero on-navy" id="top">
   <div class="container">
     <div class="hero-grid">
       <div class="hero-content">
-        <span class="tag" style="color: var(--steel-300); margin-bottom: 20px; display: inline-flex;">
-          <span class="dot"></span>
-          MECHANICAL &amp; HVAC · TORONTO &amp; GTA
-        </span>
-        <h1 style="color: var(--paper);">
-          Heating, cooling, and mechanical systems — installed right, <em style="color: var(--steel-300);">backed for life.</em>
+        <span class="tag"><span class="dash"></span>ABOUT CASPIAN · TORONTO, ON</span>
+        <h1>
+          A modern mechanical contractor, built on <em>documented craft.</em>
         </h1>
-        <p class="lead" style="color: var(--steel-300);">
-          From furnaces and boilers to heat pumps and AC — Caspian's licensed mechanical
-          team keeps your system running year-round. 24/7 emergency response, no surcharge.
+        <p class="lead">
+          Caspian is a Toronto-based plumbing and mechanical contractor serving
+          the GTA's premier builders, property managers, and homeowners. We do
+          one thing: install systems that work for decades — and prove it on paper.
         </p>
 
         <div class="hero-ctas">
-          <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Get a Free Quote</a>
+          <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Work with Caspian</a>
           <a class="btn btn-ghost btn--lg" href="tel:4168892629">
-            <svg width="16" height="16"><use href="#ic-phone" /></svg> 24/7 Emergency · (416) 889-2629
+            <svg width="16" height="16"><use href="#ic-phone" /></svg> Office · (416) 889-2629
           </a>
         </div>
       </div>
 
       <div class="hero-visual">
-        <form class="quote-form" id="hero-quote" onsubmit="event.preventDefault();">
-          <div class="quote-form__head">
-            <h3>Tell us about your project.</h3>
+        <aside class="ab-glance" aria-label="Caspian at a glance">
+          <div class="ab-glance__head">
+            <span class="ab-glance__eyebrow">— CASPIAN AT A GLANCE</span>
+            <h3 class="ab-glance__title">The short version.</h3>
           </div>
 
-          <div class="quote-form__group">
-            <label class="quote-form__label">I need help with</label>
-            <div class="quote-form__chips">
-              <input type="radio" id="t-service" name="type" value="service" checked />
-              <label for="t-service">Service call</label>
-              <input type="radio" id="t-reno" name="type" value="renovation" />
-              <label for="t-reno">Renovation</label>
-              <input type="radio" id="t-newbuild" name="type" value="newbuild" />
-              <label for="t-newbuild">New build</label>
-              <input type="radio" id="t-mech" name="type" value="mechanical" />
-              <label for="t-mech">Mechanical / boiler</label>
-              <input type="radio" id="t-builder" name="type" value="builder" />
-              <label for="t-builder">Builder enquiry</label>
+          <div class="ab-glance__grid">
+            <div class="ab-glance__item">
+              <span class="ab-glance__num">2014</span>
+              <span class="ab-glance__label">Established</span>
+            </div>
+            <div class="ab-glance__item">
+              <span class="ab-glance__num">Toronto</span>
+              <span class="ab-glance__label">Headquartered · GTA-wide</span>
+            </div>
+            <div class="ab-glance__item">
+              <span class="ab-glance__num">40<sup>+</sup></span>
+              <span class="ab-glance__label">Builder partners</span>
+            </div>
+            <div class="ab-glance__item">
+              <span class="ab-glance__num">500<sup>+</sup></span>
+              <span class="ab-glance__label">Units delivered</span>
+            </div>
+            <div class="ab-glance__item">
+              <span class="ab-glance__num">Licensed</span>
+              <span class="ab-glance__label">Ontario · all mechanical trades</span>
+            </div>
+            <div class="ab-glance__item">
+              <span class="ab-glance__num">WSIB</span>
+              <span class="ab-glance__label">Compliant · in good standing</span>
             </div>
           </div>
 
-          <div class="quote-form__group">
-            <label class="quote-form__label">When do you need it?</label>
-            <div class="quote-form__chips quote-form__chips--sm">
-              <input type="radio" id="w-emergency" name="when" value="emergency" />
-              <label for="w-emergency">Emergency</label>
-              <input type="radio" id="w-month" name="when" value="month" checked />
-              <label for="w-month">This month</label>
-              <input type="radio" id="w-quarter" name="when" value="quarter" />
-              <label for="w-quarter">1–3 months</label>
-              <input type="radio" id="w-planning" name="when" value="planning" />
-              <label for="w-planning">Planning</label>
-            </div>
+          <div class="ab-glance__foot">
+            Owner-led. One project manager per site. Lifetime workmanship
+            guarantee, provided in writing on every job we hand over.
           </div>
+        </aside>
+      </div>
+    </div>
 
-          <div class="quote-form__row quote-form__row--two">
-            <div class="quote-form__field">
-              <label for="qf-name" class="quote-form__label">Name</label>
-              <input type="text" id="qf-name" placeholder="First &amp; last" autocomplete="name" />
-            </div>
-            <div class="quote-form__field">
-              <label for="qf-phone" class="quote-form__label">Phone</label>
-              <input type="tel" id="qf-phone" placeholder="(416) 889-2629" autocomplete="tel" />
-            </div>
-          </div>
+    <div class="hero-trust hero-trust--full">
+      <div class="item"><span class="num">Est. 2014</span><span class="label">Toronto-founded</span></div>
+      <div class="item"><span class="num">Licensed</span><span class="label">Ontario plumbing &amp; gas</span></div>
+      <div class="item"><span class="num">Insured</span><span class="label">$5M general liability</span></div>
+      <div class="item"><span class="num">WSIB</span><span class="label">Compliant since day one</span></div>
+    </div>
+  </div>
+</section>
 
-          <div class="quote-form__field">
-            <label for="qf-email" class="quote-form__label">Email</label>
-            <input type="email" id="qf-email" placeholder="you@domain.com" autocomplete="email" />
-          </div>
+<!-- ═════════════════════════════════════════════════════════ THE STORY -->
+<section class="on-paper-2" id="story">
+  <div class="container">
+    <div class="ab-story-grid">
+      <div class="section-head" style="display:block;">
+        <span class="tag"><span class="dash"></span>OUR STORY</span>
+        <h2 style="margin-top: 12px;">A mechanical shop that takes documentation as seriously as the install.</h2>
+      </div>
 
-          <div class="quote-form__field">
-            <label for="qf-desc" class="quote-form__label">Project details</label>
-            <textarea id="qf-desc" rows="3" placeholder="Address, scope, timeline — anything you can share."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn--lg btn--arrow quote-form__submit">Request a quote</button>
-
-          <a class="google-row google-row--in-form" href="#" aria-label="See our Google reviews">
-            <span class="google-row__stars">
-              <svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg><svg><use href="#ic-star" /></svg>
-            </span>
-            <span class="google-row__score"><strong>5.0</strong></span>
-            <span class="google-row__rule"></span>
-            <span class="google-row__src">
-              <svg class="google-row__g"><use href="#ic-google" /></svg>
-              142 verified Google reviews
-            </span>
-          </a>
-        </form>
+      <div class="ab-story-body">
+        <p>
+          Caspian was founded in 2014 by a journeyman plumber and a mechanical
+          engineer who were tired of watching trade work get done twice. The
+          original premise was simple: <strong>if you stamp the drawings, photograph the
+          rough-in, and hand over a real warranty in writing, callbacks
+          collapse and clients stop second-guessing the invoice.</strong>
+        </p>
+        <p>
+          Twelve years later that premise still drives the company. We
+          deliberately keep plumbing and mechanical under one roof because the
+          handoff between the two trades is where most building problems start
+          — a misplaced floor drain, an under-sized recirc line, a boiler
+          loop that fights the radiant manifold. One company on the hook for
+          both means there's nowhere for the problem to hide.
+        </p>
+        <p>
+          Today Caspian runs a single shop out of North York with a directly
+          employed crew of plumbers, gasfitters, and mechanical technicians. We
+          work with about forty repeat builder partners, take a steady book of
+          residential renovation and retrofit work, and dispatch a small 24/7
+          service team across the GTA. We're not trying to be the biggest
+          mechanical contractor in Toronto — we're trying to be the one your
+          architect and your structural engineer both recommend by name.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═════════════════════════════════════════════════ WARRANTY BANNER -->
-<section class="warranty-strip on-navy">
-  <div class="container">
-    <svg class="warranty-strip__icon" viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-    <div class="warranty-strip__text">
-      <strong>1-year warranty on all workmanship.</strong>
-      <span>Included with every project · Provided in writing · No fine print</span>
-    </div>
-    <a class="warranty-strip__cta" href="#quote">
-      Learn more <svg viewBox="0 0 16 16"><use href="#ic-arrow" /></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ SERVICES GRID -->
-<section class="on-paper-2" id="services">
+<!-- ═══════════════════════════════════════════════════════ VALUES / WHAT WE BELIEVE -->
+<section id="values">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="tag"><span class="dash"></span>WHAT WE DO</span>
-        <h2>Complete mechanical &amp; HVAC coverage.</h2>
+        <span class="tag"><span class="dash"></span>WHAT WE BELIEVE</span>
+        <h2>Four principles that shape<br/>every job we take.</h2>
       </div>
       <p>
-        Whether you need a new furnace before winter hits or emergency AC repair in July —
-        Caspian's mechanical team responds fast and installs right.
+        We say no to work that doesn't fit these — even when the schedule says
+        otherwise. It's the only way the warranty means anything.
       </p>
     </div>
 
-    <div class="audience-grid">
+    <div class="ab-values-grid">
 
       <article class="audience-card">
-        <span class="num">01 — FURNACE INSTALLATION</span>
-        <h3>Furnace Installation</h3>
-        <p>High-efficiency furnace supply and installation. Proper sizing, factory startup, full warranty registration.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+        <span class="num">01 — DOCUMENTED WORK</span>
+        <h3>If it isn't on paper, it didn't happen.</h3>
+        <p>Stamped drawings, pressure-test logs, rough-in photography, and as-built revisions for every project. Hand-over packages go to the owner and the GC — no exceptions.</p>
       </article>
 
       <article class="audience-card">
-        <span class="num">02 — BOILER SYSTEMS</span>
-        <h3>Boiler Systems</h3>
-        <p>Hydronic and steam boiler installation and service for residential and commercial properties.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+        <span class="num">02 — ON-SCHEDULE DELIVERY</span>
+        <h3>The schedule is a promise, not a target.</h3>
+        <p>We commit to milestones in writing before we start. If our piece slips, we say so the day we know — and we don't blame the trade above us. Builders book us back because of this.</p>
       </article>
 
       <article class="audience-card">
-        <span class="num">03 — HEAT PUMPS</span>
-        <h3>Heat Pumps</h3>
-        <p>Air-source and ground-source heat pump installation. Eligible for government rebates — we handle the paperwork.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+        <span class="num">03 — WORKMANSHIP OVER VOLUME</span>
+        <h3>We turn down work that doesn't fit.</h3>
+        <p>Caspian stays deliberately small. Every install is performed by directly employed crew — never sub-subbed — and every system is commissioned by a senior tech before we leave site.</p>
       </article>
 
       <article class="audience-card">
-        <span class="num">04 — AIR CONDITIONING</span>
-        <h3>Air Conditioning</h3>
-        <p>Central AC installation for new builds and retrofits. Right-sized for your home, installed cleanly.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
-      </article>
-
-      <article class="audience-card">
-        <span class="num">05 — AC REPAIR &amp; SERVICE</span>
-        <h3>AC Repair &amp; Service</h3>
-        <p>Fast AC diagnostics and repair. Refrigerant, coils, compressors — we fix it all, 24/7.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
-      </article>
-
-      <article class="audience-card">
-        <span class="num">06 — DUCT WORK</span>
-        <h3>Duct Work</h3>
-        <p>New duct fabrication, sealing, and balancing. Proper airflow for every room in the house.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
-      </article>
-
-      <article class="audience-card">
-        <span class="num">07 — HUMIDIFIERS</span>
-        <h3>Humidifiers</h3>
-        <p>Whole-home bypass and power humidifiers. Protect your home and improve air quality through dry winters.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
-      </article>
-
-      <article class="audience-card">
-        <span class="num">08 — UV AIR PURIFIERS</span>
-        <h3>UV Air Purifiers</h3>
-        <p>In-duct UV purification eliminates bacteria, viruses, and mould spores at the source.</p>
-        <a class="cta" href="#quote">Get a quote <svg width="14" height="14"><use href="#ic-arrow" /></svg></a>
+        <span class="num">04 — ONE PM PER PROJECT</span>
+        <h3>One name on the email chain.</h3>
+        <p>From estimate through warranty period, a single project manager owns your job. No phone trees, no rotating contacts, no surprise faces in the mechanical room on inspection day.</p>
       </article>
 
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ WHY CASPIAN STRIP -->
-<section class="on-navy compact">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="num">24/7</div>
-        <span class="label">Emergency HVAC response, no after-hours charge</span>
-      </div>
-      <div class="stat">
-        <div class="num" style="font-size: clamp(32px, 3.5vw, 52px); letter-spacing: 0;">Licensed</div>
-        <span class="label">Licensed gas fitters &amp; refrigeration mechanics</span>
-      </div>
-      <div class="stat">
-        <div class="num" style="font-size: clamp(32px, 3.5vw, 52px); letter-spacing: 0;">Rebate<br>Ready</div>
-        <span class="label">We handle heat pump rebate paperwork</span>
-      </div>
-      <div class="stat">
-        <div class="num">5.0 ★</div>
-        <span class="label">Google rating · 142 verified reviews</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════════════ PROCESS -->
-<section class="process" id="process">
+<!-- ═══════════════════════════════════════════════════════ TEAM / LEADERSHIP -->
+<section class="on-paper-2" id="team">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="tag" style="color: var(--steel-300)"><span class="dash"></span>OUR PROCESS</span>
-        <h2 style="color: var(--paper)">No surprises. Just results.</h2>
+        <span class="tag"><span class="dash"></span>LEADERSHIP</span>
+        <h2>The people on the hook.</h2>
       </div>
-      <p>Built for homeowners who want to know what's happening, when — and builders who need it done right.</p>
+      <p>A small leadership team — every one of them holds tools, reads drawings, and answers their own phone.</p>
     </div>
-    <div class="process-grid">
-      <div class="step">
-        <div class="num">01 / BOOK</div>
-        <h4>Book a consultation</h4>
-        <p>Call or request a quote online. We'll schedule a same-day or next-day visit at your convenience.</p>
+
+    <div class="ab-team-grid">
+
+      <div class="ab-team-item">
+        <span class="ab-team-item__role">FOUNDER &amp; PRINCIPAL</span>
+        <h3 class="ab-team-item__name">Daniel Aslanyan</h3>
+        <p class="ab-team-item__bio">Journeyman plumber, 22 years on the tools. Founded Caspian in 2014 after a decade in high-rise multi-unit. Personally inspects every builder hand-over.</p>
       </div>
-      <div class="step">
-        <div class="num">02 / ASSESS</div>
-        <h4>System assessment</h4>
-        <p>Our mechanical tech evaluates your existing system or new-build specs and provides a written quote.</p>
+
+      <div class="ab-team-item">
+        <span class="ab-team-item__role">MECHANICAL LEAD</span>
+        <h3 class="ab-team-item__name">Priya Krishnan, P.Eng.</h3>
+        <p class="ab-team-item__bio">Licensed mechanical engineer running hydronic, boiler, and HVAC design. Owns the drawing stamp and the commissioning sign-off for every install.</p>
       </div>
-      <div class="step">
-        <div class="num">03 / INSTALL</div>
-        <h4>Professional installation</h4>
-        <p>We install with manufacturer specs, pull required permits, and commission the system properly.</p>
+
+      <div class="ab-team-item">
+        <span class="ab-team-item__role">OPERATIONS MANAGER</span>
+        <h3 class="ab-team-item__name">Marco Da Silva</h3>
+        <p class="ab-team-item__bio">Runs scheduling, permits, and the service desk. The reason your call gets returned the same day and your inspection lands on the calendar week one.</p>
       </div>
-      <div class="step">
-        <div class="num">04 / BACK</div>
-        <h4>Backed for life</h4>
-        <p>Every installation comes with our lifetime workmanship guarantee and full manufacturer warranty.</p>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ EMERGENCY CTA BAND -->
-<section class="final-cta on-navy">
-  <svg class="watermark" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#hex-badge" /></svg>
+<!-- ═══════════════════════════════════════════════════ CERTIFICATIONS STRIP -->
+<section class="ab-certs">
   <div class="container">
-    <div class="left">
-      <span class="tag" style="color: var(--steel-300)"><span class="dash"></span>24/7 HVAC EMERGENCY · GTA</span>
-      <h2>No heat? No AC? We're on our way.</h2>
-    </div>
-    <div class="right">
-      <p>24/7 emergency HVAC response across the GTA. No after-hours surcharge. Licensed mechanical technicians.</p>
-      <div class="ctas">
-        <a class="btn btn-primary btn--lg btn--arrow" href="#quote">Get a Quote</a>
-        <a class="btn btn-ghost btn--lg" href="tel:4168892629">
-          <svg width="16" height="16"><use href="#ic-phone" /></svg> Call (416) 889-2629
-        </a>
+    <div class="ab-certs__inner">
+      <span class="ab-certs__label">— TRADE MEMBERSHIPS &amp; CERTIFICATIONS</span>
+      <div class="ab-certs__list">
+        <span class="ab-cert">TSSA Certified</span>
+        <span class="ab-cert">ESA Licensed</span>
+        <span class="ab-cert">WSIB Compliant</span>
+        <span class="ab-cert">OBC Compliant</span>
+        <span class="ab-cert">Fully Insured</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════════════ QUOTE -->
+<!-- ═══════════════════════════════════════════════════════════ QUOTE -->
 <section class="quote-section" id="quote">
   <div class="container">
     <div class="quote-section__left">
       <p class="eyebrow">GET A QUOTE</p>
-      <h2>Tell us about your mechanical or HVAC project.</h2>
-      <p>Send us the details and we'll come back inside 24 hours — usually the same day. Emergency calls jump the queue.</p>
+      <h2>Work with Caspian.</h2>
+      <p>
+        Tell us about your project — a builder enquiry, a renovation, or a
+        service call. We respond within the hour during business hours,
+        usually with a same-day site visit on the calendar.
+      </p>
 
       <div class="quote-section__trust">
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          Lifetime workmanship guarantee on all installations
+          Lifetime workmanship guarantee — in writing
         </div>
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          24/7 emergency HVAC — no after-hours surcharge
+          Owner-led, directly employed crew — never sub-subbed
         </div>
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          Licensed gas fitters &amp; HVAC technicians in Ontario
+          Fully licensed, insured, and WSIB-compliant
         </div>
         <div class="quote-section__trust-item">
           <svg viewBox="0 0 24 24"><use href="#ic-shield" /></svg>
-          Upfront pricing — no surprises on the invoice
+          One project manager per site — direct line, no phone trees
         </div>
       </div>
     </div>
@@ -565,52 +717,52 @@
       <div class="quote-form__group">
         <label class="quote-form__label">I need help with</label>
         <div class="quote-form__chips">
-          <input type="radio" id="qs-service" name="qtype" value="service" checked />
-          <label for="qs-service">Service call</label>
-          <input type="radio" id="qs-reno" name="qtype" value="renovation" />
-          <label for="qs-reno">Renovation</label>
-          <input type="radio" id="qs-newbuild" name="qtype" value="newbuild" />
-          <label for="qs-newbuild">New build</label>
-          <input type="radio" id="qs-mech" name="qtype" value="mechanical" />
-          <label for="qs-mech">Mechanical / boiler</label>
-          <input type="radio" id="qs-builder" name="qtype" value="builder" />
-          <label for="qs-builder">Builder enquiry</label>
+          <input type="radio" id="ab-t-service" name="ab-type" value="service" checked />
+          <label for="ab-t-service">Service call</label>
+          <input type="radio" id="ab-t-reno" name="ab-type" value="renovation" />
+          <label for="ab-t-reno">Renovation</label>
+          <input type="radio" id="ab-t-newbuild" name="ab-type" value="newbuild" />
+          <label for="ab-t-newbuild">New build</label>
+          <input type="radio" id="ab-t-mech" name="ab-type" value="mechanical" />
+          <label for="ab-t-mech">Mechanical / boiler</label>
+          <input type="radio" id="ab-t-builder" name="ab-type" value="builder" />
+          <label for="ab-t-builder">Builder enquiry</label>
         </div>
       </div>
 
       <div class="quote-form__group">
         <label class="quote-form__label">When do you need it?</label>
         <div class="quote-form__chips quote-form__chips--sm">
-          <input type="radio" id="qs-emergency" name="qwhen" value="emergency" />
-          <label for="qs-emergency">Emergency</label>
-          <input type="radio" id="qs-month" name="qwhen" value="month" checked />
-          <label for="qs-month">This month</label>
-          <input type="radio" id="qs-quarter" name="qwhen" value="quarter" />
-          <label for="qs-quarter">1–3 months</label>
-          <input type="radio" id="qs-planning" name="qwhen" value="planning" />
-          <label for="qs-planning">Planning</label>
+          <input type="radio" id="ab-w-emergency" name="ab-when" value="emergency" />
+          <label for="ab-w-emergency">Emergency</label>
+          <input type="radio" id="ab-w-month" name="ab-when" value="month" checked />
+          <label for="ab-w-month">This month</label>
+          <input type="radio" id="ab-w-quarter" name="ab-when" value="quarter" />
+          <label for="ab-w-quarter">1–3 months</label>
+          <input type="radio" id="ab-w-planning" name="ab-when" value="planning" />
+          <label for="ab-w-planning">Planning</label>
         </div>
       </div>
 
       <div class="quote-form__row quote-form__row--two">
         <div class="quote-form__field">
-          <label for="qs-name" class="quote-form__label">Name</label>
-          <input type="text" id="qs-name" placeholder="First &amp; last" autocomplete="name" />
+          <label for="ab-name" class="quote-form__label">Name</label>
+          <input type="text" id="ab-name" placeholder="First &amp; last" autocomplete="name" />
         </div>
         <div class="quote-form__field">
-          <label for="qs-phone" class="quote-form__label">Phone</label>
-          <input type="tel" id="qs-phone" placeholder="(416) 889-2629" autocomplete="tel" />
+          <label for="ab-phone" class="quote-form__label">Phone</label>
+          <input type="tel" id="ab-phone" placeholder="(416) 889-2629" autocomplete="tel" />
         </div>
       </div>
 
       <div class="quote-form__field">
-        <label for="qs-email" class="quote-form__label">Email</label>
-        <input type="email" id="qs-email" placeholder="you@domain.com" autocomplete="email" />
+        <label for="ab-email" class="quote-form__label">Email</label>
+        <input type="email" id="ab-email" placeholder="you@domain.com" autocomplete="email" />
       </div>
 
       <div class="quote-form__field">
-        <label for="qs-desc" class="quote-form__label">Project details</label>
-        <textarea id="qs-desc" rows="4" placeholder="Address, scope, timeline — anything you can share."></textarea>
+        <label for="ab-desc" class="quote-form__label">Project details</label>
+        <textarea id="ab-desc" rows="3" placeholder="Address, scope, timeline — anything you can share."></textarea>
       </div>
 
       <button type="submit" class="btn btn-primary btn--lg btn--arrow quote-form__submit">Request a quote</button>
@@ -643,7 +795,7 @@
         </p>
         <a class="footer-phone" href="tel:4168892629">OFFICE — 416 · 889 · 2629</a>
         <a class="footer-phone footer-phone--emergency" href="tel:4168892629">24/7 EMERGENCY — 416 · 889 · 2629</a>
-        <span style="font-family: var(--font-mono); font-size:12px; letter-spacing:0.08em; color: var(--steel-300)">hello@caspianmech.ca</span>
+        <span style="font-family: var(--font-mono); font-size:12px; letter-spacing:0.08em; color: var(--steel-300)">hello@caspianmechanical.ca</span>
 
         <div class="footer-pay">
           <span class="footer-pay__label">PAYMENTS ACCEPTED</span>
@@ -665,29 +817,29 @@
       <div class="footer-col">
         <h5>Services</h5>
         <ul>
-          <li><a href="mechanical-hvac.html">Furnace Installation</a></li>
-          <li><a href="mechanical-hvac.html">Boiler Systems</a></li>
-          <li><a href="mechanical-hvac.html">Heat Pumps</a></li>
-          <li><a href="mechanical-hvac.html">Air Conditioning</a></li>
-          <li><a href="mechanical-hvac.html">24/7 Emergency HVAC</a></li>
+          <li><a href="plumbing.html">Plumbing</a></li>
+          <li><a href="mechanical-hvac.html">Mechanical &amp; HVAC</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+          <li><a href="builders.html">Builders</a></li>
+          <li><a href="plumbing.html">24/7 Emergency</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Company</h5>
         <ul>
-          <li><a href="index.html">About Caspian</a></li>
+          <li><a href="about.html">About Caspian</a></li>
           <li><a href="index.html#projects">Projects</a></li>
           <li><a href="builders.html">For builders</a></li>
           <li><a href="#quote">Contact</a></li>
-          <li><a href="careers.html">Careers</a></li>
+          <li><a href="#">Careers</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Service area</h5>
         <ul>
-          <li><a href="toronto.html">Toronto</a></li>
+          <li><a href="#">Toronto</a></li>
           <li><a href="#">North York</a></li>
           <li><a href="#">Etobicoke</a></li>
           <li><a href="#">Mississauga</a></li>
