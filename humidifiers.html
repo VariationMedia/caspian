@@ -298,7 +298,8 @@
 
 <!-- ═════════════════════════════════════════════════════════════════ NAV -->
 <header class="site-header">
-
+  <input type="checkbox" id="mnav-toggle" class="mnav-toggle" aria-hidden="true" />
+  
   <!-- ── Utility bar ── -->
   <div class="topnav-util">
     <div class="topnav-util-inner">
@@ -317,6 +318,10 @@
       <a class="brand" href="index.html" aria-label="Caspian — Plumbing &amp; Mechanical home">
         <svg class="brand-badge" viewBox="0 0 640 220" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><use href="#hex-badge" /></svg>
       </a>
+      <label for="mnav-toggle" class="mnav-burger" aria-label="Open menu" role="button">
+        <span></span><span></span><span></span>
+      </label>
+
 
       <ul class="nav-links" role="menubar">
 
@@ -448,6 +453,48 @@
 
       <a class="btn btn-primary" href="#quote">Get a Quote</a>
 
+    </div>
+  </nav>
+
+
+  <!-- Mobile nav overlay (CSS-only, checkbox-driven) -->
+  <label for="mnav-toggle" class="mnav-backdrop" aria-hidden="true"></label>
+  <nav class="mnav-overlay" aria-label="Mobile menu">
+    <div class="mnav-overlay__inner">
+      <div class="mnav-overlay__head">
+        <span class="mnav-overlay__brand">CASPIAN</span>
+        <label for="mnav-toggle" class="mnav-close" aria-label="Close menu" role="button">&#x2715;</label>
+      </div>
+
+      <ul class="mnav-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="plumbing.html">Plumbing</a></li>
+        <li><a href="mechanical-hvac.html">Mechanical &amp; HVAC</a></li>
+        <li><a href="commercial.html">Commercial</a></li>
+        <li><a href="builders.html">Builders</a></li>
+      </ul>
+
+      <p class="mnav-label">Service areas</p>
+      <ul class="mnav-list mnav-list--sub">
+        <li><a href="toronto.html">Toronto</a></li>
+        <li><a href="north-york.html">North York</a></li>
+        <li><a href="etobicoke.html">Etobicoke</a></li>
+        <li><a href="mississauga.html">Mississauga</a></li>
+        <li><a href="oakville.html">Oakville &amp; GTA West</a></li>
+      </ul>
+
+      <p class="mnav-label">Company</p>
+      <ul class="mnav-list mnav-list--sub">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="careers.html">Careers</a></li>
+      </ul>
+
+      <div class="mnav-overlay__cta">
+        <a class="btn btn-primary btn--lg" href="#quote">Get a Quote</a>
+        <a class="btn btn-ghost btn--lg" href="tel:4168892629">(416) 889-2629</a>
+      </div>
     </div>
   </nav>
 
@@ -942,13 +989,13 @@
   <a class="mobile-call__half" href="tel:4168892629">
     <svg><use href="#ic-phone" /></svg>
     <span class="mobile-call__label">OFFICE</span>
-    <span class="mobile-call__num">416 555 0142</span>
+    <span class="mobile-call__num">416 889 2629</span>
   </a>
   <span class="mobile-call__div"></span>
   <a class="mobile-call__half mobile-call__half--emergency" href="tel:4168892629">
     <svg><use href="#ic-phone" /></svg>
     <span class="mobile-call__label">24/7</span>
-    <span class="mobile-call__num">416 555 0911</span>
+    <span class="mobile-call__num">416 889 2629</span>
   </a>
 </div>
 
